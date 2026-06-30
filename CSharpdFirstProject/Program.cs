@@ -10,7 +10,7 @@
             //taking user info
             Console.Write("Please enter your name: ");
             String Username = Console.ReadLine();
-            Console.WriteLine("Hello"  + Username + "welcome to Spark"); //printing hello with the username
+            Console.WriteLine("Hello" + Username + "welcome to Spark"); //printing hello with the username
 
 
             Console.WriteLine("please enter your age: ");
@@ -23,7 +23,7 @@
 
             //taking 2 numbers from the user and performing arithmetic operations on them
             Console.WriteLine("enter first number: ");
-            float num1 = float.Parse(Console.ReadLine()); 
+            float num1 = float.Parse(Console.ReadLine());
 
             Console.WriteLine("enter second number: ");
             float num2 = float.Parse(Console.ReadLine());
@@ -41,7 +41,7 @@
             Console.WriteLine("The quotient of the two numbers is: " + division);
             Console.WriteLine("The modulus of the two numbers is: " + modulus);
 
-            //using if else statements
+
             bool result = num1 > num2; //checking if num1 is greater than num2
             bool result1 = num1 < num2; //checking if num1 is less than num2
             bool result2 = num1 == num2; //checking if num1 is equal to num2
@@ -50,6 +50,21 @@
             Console.WriteLine("Is num1 greater than num2? " + result);
             Console.WriteLine("Is num1 less than num2? " + result1);
             Console.WriteLine("Is num1 equal to num2? " + result2);
+
+            // conditional statements (and-->&&, or-->||, not-->!)
+            //degree input scenario
+            Console.WriteLine("Please enter your degree: ");
+            float degree = float.Parse(Console.ReadLine());
+
+            if (degree > 50)
+            {
+                Console.WriteLine("You failed");
+            }
+            else if(degree >= 50 && degree < 60)
+            {
+                Console.WriteLine("You passed");
+            }
+
         }
 
     }
