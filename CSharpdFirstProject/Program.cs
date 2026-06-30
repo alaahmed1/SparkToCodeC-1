@@ -16,7 +16,9 @@
             int age = int.Parse(Console.ReadLine()); //using int.parse to convert the string input to an integer
             Console.WriteLine("You are " + age + " years old.");
 
-          
+            Console.WriteLine("enter your salary: ");
+            float salary = float.Parse(Console.ReadLine()); //using float.parse to convert the string input to a float
+
         }
 
 
