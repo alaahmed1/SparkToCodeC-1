@@ -62,8 +62,28 @@
             }
             else if(degree >= 50 && degree < 60)
             {
-                Console.WriteLine("You passed");
+                Console.WriteLine("You passed with level D");
             }
+            else if (degree >= 60 && degree < 70)
+            {
+                Console.WriteLine("You passed with level C");
+            }
+            else if (degree >= 70 && degree < 80)
+            {
+                Console.WriteLine("You passed with level B");
+            }
+            else if (degree >= 80 && degree < 90)
+            {
+                Console.WriteLine("You passed with level A");
+            }
+            else if (degree >= 90 && degree <= 100)
+            {
+                Console.WriteLine("You passed with level A+");
+            }
+            else
+            {
+                Console.WriteLine("Invalid degree input");
+            } 
 
         }
 
