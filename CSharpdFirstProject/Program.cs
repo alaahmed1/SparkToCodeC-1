@@ -83,7 +83,18 @@
             else
             {
                 Console.WriteLine("Invalid degree input");
-            } 
+            }
+
+
+            //switch case example for bank menu
+            Console.WriteLine("Welcome to main menu");
+            Console.WriteLine("1. Deposit");
+            Console.WriteLine("2. Withdraw");
+            Console.WriteLine("3. Check Balance");
+
+            Console.WriteLine("Please select an option: ");
+            int option = int.Parse(Console.ReadLine());
+
 
         }
 
