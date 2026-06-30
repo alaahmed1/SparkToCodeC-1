@@ -7,6 +7,7 @@
         {
             Console.WriteLine("Hello, SparktoCode!");
 
+            //taking user info
             Console.Write("Please enter your name: ");
             String Username = Console.ReadLine();
             Console.WriteLine("Hello"  + Username + "welcome to Spark"); //printing hello with the username
@@ -20,7 +21,7 @@
 
 
 
-
+            //taking 2 numbers from the user and performing arithmetic operations on them
             Console.WriteLine("enter first number: ");
             float num1 = float.Parse(Console.ReadLine()); 
 
@@ -33,15 +34,23 @@
             float division = num1 / num2; //dividing the two numbers
             float modulus = num1 % num2; //modulus of the two numbers
 
+            //outputting the results of the arithmetic operations
             Console.WriteLine("The sum of the two numbers is: " + sum);
             Console.WriteLine("The difference of the two numbers is: " + difference);
             Console.WriteLine("The product of the two numbers is: " + multiplication);
             Console.WriteLine("The quotient of the two numbers is: " + division);
             Console.WriteLine("The modulus of the two numbers is: " + modulus);
 
+            //using if else statements
+            bool result = num1 > num2; //checking if num1 is greater than num2
+            bool result1 = num1 < num2; //checking if num1 is less than num2
+            bool result2 = num1 == num2; //checking if num1 is equal to num2
+
+            Console.WriteLine("Comparison results: ");
+            Console.WriteLine("Is num1 greater than num2? " + result);
+            Console.WriteLine("Is num1 less than num2? " + result1);
+            Console.WriteLine("Is num1 equal to num2? " + result2);
         }
-
-
 
     }
 }
