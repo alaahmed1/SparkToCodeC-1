@@ -95,6 +95,21 @@
             Console.WriteLine("Please select an option: ");
             int option = int.Parse(Console.ReadLine());
 
+            switch(option)
+            {
+                case 1:
+                    Console.WriteLine("You selected Deposit");
+                    break;
+                case 2:
+                    Console.WriteLine("You selected Withdraw");
+                    break;
+                case 3:
+                    Console.WriteLine("You selected Check Balance");
+                    break;
+                default:
+                    Console.WriteLine("Invalid option selected");
+                    break;
+            }
 
         }
 
