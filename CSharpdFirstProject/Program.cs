@@ -33,7 +33,12 @@
             float division = num1 / num2; //dividing the two numbers
             float modulus = num1 % num2; //modulus of the two numbers
 
-            
+            Console.WriteLine("The sum of the two numbers is: " + sum);
+            Console.WriteLine("The difference of the two numbers is: " + difference);
+            Console.WriteLine("The product of the two numbers is: " + multiplication);
+            Console.WriteLine("The quotient of the two numbers is: " + division);
+            Console.WriteLine("The modulus of the two numbers is: " + modulus);
+
         }
 
 
