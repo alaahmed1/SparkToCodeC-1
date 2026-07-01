@@ -2,6 +2,8 @@
 {
     internal class Program
     {
+        private static int userChoice;
+
         static void Main(string[] args)
         {
 
@@ -47,6 +49,20 @@
                 {
                     exitDecision = true; //changing the value of the variable to true so that the loop will exit
                 }
+
+                try //this block of code will be executed if the user input is not y or n
+                {
+                    if (userInput != "y" && userInput != "n") //if the user input is not y or n then the exception will be thrown
+                    {
+                        throw new Exception("Invalid input, please enter y or n"); //throwing an exception with a message
+                    }
+                }
+                catch (Exception ex) //catching the exception and printing the message
+                {
+                    Console.WriteLine(ex.Message); //printing the message of the exception
+                    Console.WriteLine("Invalid input, please enter a number");
+                }
+
             } while (exitDecision == false);
 
             //nested loop is self study
