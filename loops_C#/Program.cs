@@ -22,6 +22,17 @@
                 Console.WriteLine("Hello, SparktoCode!" + counter);
             }
             
+
+            bool exitDecision = false; //variable to store the decision of the user to exit the loop or not
+            while (exitDecision == false) { // as long as the var equals to false this loop will run
+                Console.WriteLine("print menu");
+                Console.WriteLine("do you want to exit the loop? (y/n)");
+                string userInput = Console.ReadLine(); //taking input from the user
+                if (userInput == "y") //if the user input is y then the loop will exit
+                {
+                    exitDecision = true; //changing the value of the variable to true so that the loop will exit
+                } //we dont need to use else statement here because if the user input is not y then the loop will continue to run
+            }
         }
     }
 }
