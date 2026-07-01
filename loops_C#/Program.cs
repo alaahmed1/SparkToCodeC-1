@@ -23,16 +23,39 @@
             }
             
 
+            //while loop:
             bool exitDecision = false; //variable to store the decision of the user to exit the loop or not
+            string userInput; //variable to store the user input
             while (exitDecision == false) { // as long as the var equals to false this loop will run
                 Console.WriteLine("print menu");
                 Console.WriteLine("do you want to exit the loop? (y/n)");
-                string userInput = Console.ReadLine(); //taking input from the user
+                userInput = Console.ReadLine(); //taking input from the user
                 if (userInput == "y") //if the user input is y then the loop will exit
                 {
                     exitDecision = true; //changing the value of the variable to true so that the loop will exit
                 } //we dont need to use else statement here because if the user input is not y then the loop will continue to run
             }
+
+
+            //do while loop logic/syntax, at least one time the code will be executed even if the condition is false
+            do
+            {
+                Console.WriteLine("print menu");
+                Console.WriteLine("do you want to exit the loop? (y/n)");
+                userInput = Console.ReadLine(); //taking input from the user
+                if (userInput == "y") //if the user input is y then the loop will exit
+                {
+                    exitDecision = true; //changing the value of the variable to true so that the loop will exit
+                }
+            } while (exitDecision == false);
+
+            //nested loop is self study
+
+            //types of errors:
+            //1: Syntax error: occurs when the code is not written in the correct syntax of the programming language. For example, missing a semicolon at the end of a statement.
+            //2: Runtime error: occurs when the code is running and an unexpected condition occurs. For example, dividing a number by zero.
+            //3: Logical error: occurs when the code runs without any errors but the output is not as expected. For example, using the wrong operator in a calculation.
+
         }
     }
 }
