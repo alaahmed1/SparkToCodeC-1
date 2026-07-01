@@ -19,7 +19,7 @@
             int counter = 0; 
             for (counter=1; counter<=5; counter++) // repeating the sentance 5 times
             {
-                Console.WriteLine("Hello, SparktoCode!");
+                Console.WriteLine("Hello, SparktoCode!" + counter);
             }
             
         }
