@@ -1,4 +1,6 @@
-﻿namespace task1_solution
+﻿using System.Diagnostics;
+
+namespace task1_solution
 {
     internal class Program
     {
@@ -84,22 +86,30 @@
 
 
             //Task 6: Safe Division Calculator
-            Console.WriteLine("enter the first number: ");
-            int num1 = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("enter the second number: ");
-            int num2 = Convert.ToInt32(Console.ReadLine());
-            try
-            {
-                float devide = num1 / num2;
-                Console.WriteLine("the division of two numbers is: " + devide); 
-            }
+            //Console.WriteLine("enter the first number: ");
+            //int num1 = Convert.ToInt32(Console.ReadLine());
+            //Console.WriteLine("enter the second number: ");
+            //int num2 = Convert.ToInt32(Console.ReadLine());
+            //try
+            //{
+            //    float devide = num1 / num2;
+            //    Console.WriteLine("the division of two numbers is: " + devide); 
+            //}
 
-            catch (Exception e) // handling errors
-            {
-                Console.WriteLine(e.Message);
-            }
+            //catch (Exception e) // handling errors
+            //{
+            //    Console.WriteLine(e.Message);
+            //}
+
+            //Task 7: Repeating Menu with Exit Option
+            //while (true) { 
+            //// i know something has to be with "switch" should be inside 
+            ////options will be 1-> hello, 2->Show current and 3->exit
+            
+            //}
 
 
+        
 
 
 
