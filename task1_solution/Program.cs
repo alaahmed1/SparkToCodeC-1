@@ -13,7 +13,7 @@
                 Console.WriteLine(count);
             }
 
-            Console.WriteLine("Lift off!");
+            Console.WriteLine("Liftoff!");
 
         }
     }
