@@ -5,7 +5,15 @@
         static void Main(string[] args)
         {
 
-            Console.WriteLine("Hello, World!");
+            //Task 1: Count down 
+            Console.WriteLine("enter a number to count down from: ");
+            int number = Convert.ToInt32(Console.ReadLine());
+            for (int count = number; count >= 1; count--) {
+
+                Console.WriteLine(count);
+            }
+
+            Console.WriteLine("Lift off!");
 
         }
     }
