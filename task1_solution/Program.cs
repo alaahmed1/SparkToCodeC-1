@@ -105,16 +105,74 @@ namespace task1_solution
             //while (true) { 
             //// i know something has to be with "switch" should be inside 
             ////options will be 1-> hello, 2->Show current and 3->exit
-            
+
             //}
 
 
-        
+            //Task 8: Sum of even numbers
+            //Console.WriteLine("enter a positive whole number:");
+            //int num = Convert.ToInt32(Console.ReadLine());
+            //int Count = 0;
+            //for (int i = 0; i <= num; i++)
+            //{
+            //    if (i % 2 == 0)
+            //    {
+            //        Count += i;
+            //    }
+
+            //}
+
+            //Console.WriteLine("the sum of even numbers from 0 to N is: " + Count);
+
+            //Task 9: Validated Positive Number Input
+            //int count = 0;
+            //bool validnum = false;
+            //do {
+            //    try
+            //    {
+            //        Console.WriteLine("enter a positive whole number:");
+            //        int posnum = Convert.ToInt32(Console.ReadLine());
+            //        if (posnum > 0)
+            //        {
+            //            validnum = true;
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("Number must be greater than 0. Try again.");
+            //        }
+            //    }
+
+            //    catch (Exception e)
+            //    {
+            //        Console.WriteLine("Invalid input. Please enter a positive whole number.");
+            //    }
+
+            //} while (!validnum);
+
+
+            //Task 10: Simple ATM Simulation
+            //int PIN = 1234;
+            //int balance = 100;
+            //for (int i = 0; i<=3; i++)  {
+            //    Console.WriteLine("enter pin: ");
+            //    int pintry = Convert.ToInt32(Console.ReadLine());
+            //    try {
+            //        if (pintry == PIN)
+            //        { 
+
+            //        }
+            //    }
+                
+                    
+
+
+
+
 
 
 
         }
 
-        
+
     }
 }
