@@ -54,6 +54,34 @@
             //}
 
 
+            //Task 5: Number Guessing Game
+            //int secretNumber = 50;
+            //int count = 0;
+            //int gussed;
+            //do
+            //{
+            //    Console.WriteLine("guess the seceret number");
+            //    gussed = Convert.ToInt32(Console.ReadLine());
+            //    //int numberattempts = +count; this does not work cuz count will always be 0 since it is not being incremented anywhere in the loop
+            //    count++; // incrementing the count variable to keep track of the number of attempts
+            //    Console.WriteLine("attempt " + count);
+
+            //    if (gussed == secretNumber)
+            //    {
+            //        Console.WriteLine("you guessed the number");
+            //        break;
+            //    }
+            //    else if (gussed < secretNumber)
+            //    {
+            //        Console.WriteLine("the number is too low");
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("the number is too high");
+
+            //    } 
+            //} while(gussed != secretNumber) ;
+
 
 
         }
