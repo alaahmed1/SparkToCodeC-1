@@ -6,7 +6,7 @@
         {
 
             //Task 1: Count down 
-            Console.WriteLine("enter a number to count down from: ");
+            Console.Write("enter a number to count down from: ");
             int number = Convert.ToInt32(Console.ReadLine());
             for (int count = number; count >= 1; count--) {
 
