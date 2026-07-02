@@ -83,7 +83,28 @@
             //} while(gussed != secretNumber) ;
 
 
+            //Task 6: Safe Division Calculator
+            Console.WriteLine("enter the first number: ");
+            int num1 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("enter the second number: ");
+            int num2 = Convert.ToInt32(Console.ReadLine());
+            try
+            {
+                float devide = num1 / num2;
+                Console.WriteLine("the division of two numbers is: " + devide); 
+            }
+
+            catch (Exception e) // handling errors
+            {
+                Console.WriteLine(e.Message);
+            }
+
+
+
+
 
         }
+
+        
     }
 }
