@@ -52,6 +52,21 @@
             //    Console.WriteLine("Failed with a grade of: " + roundedGrade);
             //}
 
+            //Task 6: Password Strength Checker
+            //Console.WriteLine("enter a password to check its strength:");
+            //string password = Console.ReadLine();
+            //int length = password.Length;
+            //bool passcontain = password.ToLower().Contains("password");
+
+            //if (length>=8 && !passcontain)
+            //{
+            //    Console.WriteLine("strong password");
+
+            //}
+            //else
+            //{
+            //    Console.WriteLine("weak password");
+            //}
 
 
 
