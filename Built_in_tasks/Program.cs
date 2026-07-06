@@ -19,6 +19,16 @@
             //double square = Math.Pow(number, 2);
             //double squareRoot = Math.Sqrt(number);
             //Console.WriteLine("the square of the number is: " + square + " ,and the square root is: " + squareRoot);
+
+            //task 3: Name Formatter
+            //Console.Write("enter your full name: ");
+            //string fullName = Console.ReadLine();
+            //string UPPER = fullName.ToUpper();
+            //string LOWER = fullName.ToLower();
+            //int length = fullName.Length;
+            //Console.WriteLine("your name in uppercase is: " + UPPER);
+            //Console.WriteLine("your name in lowercase is: " + LOWER);
+            //Console.WriteLine("the length of your name is: " + length);
         }
     }
 }
