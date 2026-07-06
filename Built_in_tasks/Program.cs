@@ -29,6 +29,21 @@
             //Console.WriteLine("your name in uppercase is: " + UPPER);
             //Console.WriteLine("your name in lowercase is: " + LOWER);
             //Console.WriteLine("the length of your name is: " + length);
+
+
+            //task 4: Subscription End Date
+            //Console.Write("enter number of day of free trial:");
+            //int numDays = Convert.ToInt32(Console.ReadLine());
+            //DateTime start = DateTime.Now;
+            //DateTime end = start.AddDays(numDays);
+            //Console.WriteLine("the end date of your free trial is: " + end.ToString("MM/dd/yyyy"));
+
+
+
+
+
+
+
         }
     }
 }
