@@ -102,9 +102,34 @@ namespace task1_solution
             //}
 
             //Task 7: Repeating Menu with Exit Option
-            //while (true) { 
-            //// i know something has to be with "switch" should be inside 
-            ////options will be 1-> hello, 2->Show current and 3->exit
+            //bool exit = true;
+
+            //while (exit)
+            //{
+            //    Console.WriteLine("Select an option (1) Say Hello, (2) Show Current Time-of-day, (3):Exit");
+            //    try
+            //    {
+            //        int choice = int.Parse(Console.ReadLine());
+            //        switch (choice)
+            //        {
+            //            case 1:
+            //                Console.WriteLine("Hello!");
+            //                break;
+            //            case 2:
+            //                Console.WriteLine("Current Time: " );
+            //                break;
+            //            case 3:
+            //                exit = false;
+            //                Console.WriteLine("Exiting the program.");
+            //                break;
+            //            default:
+            //                Console.WriteLine("Invalid choice. Please select a valid option.");
+            //                break; }
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        Console.WriteLine("Invalid input. Please enter a number corresponding to the menu options.");
+            //    }
 
             //}
 
@@ -162,8 +187,8 @@ namespace task1_solution
 
             //        }
             //    }
-                
-                    
+
+
 
 
 
