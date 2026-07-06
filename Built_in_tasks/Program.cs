@@ -38,6 +38,19 @@
             //DateTime end = start.AddDays(numDays);
             //Console.WriteLine("the end date of your free trial is: " + end.ToString("MM/dd/yyyy"));
 
+            //task 5: Grade Rounding System
+            //Console.Write("enter your grade as a decimal (e.g. 74.6): ");
+            //double grade = Convert.ToDouble(Console.ReadLine());
+            //double roundedGrade = Math.Round(grade, 0);
+            //if (roundedGrade >= 60)
+            //{
+            //    Console.WriteLine("Passed with a grade of: " + roundedGrade);
+
+            //}
+            //else if (roundedGrade < 60)
+            //{
+            //    Console.WriteLine("Failed with a grade of: " + roundedGrade);
+            //}
 
 
 
