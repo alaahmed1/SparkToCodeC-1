@@ -101,9 +101,98 @@
             //    Console.WriteLine("Membership is valid until: " + expiry.ToString("MM/dd/yyyy"));
             //}
 
+            //Task 9: Round Up / Round Down Explorer
+            //Console.Write("Enter a decimal number: ");
+            //double number = double.Parse(Console.ReadLine());
+            //double nearest = Math.Round(number); // rounds to the nearest whole number
+            //double roundedUp = Math.Ceiling(number);
+            //double roundedDown = Math.Floor(number);
+            //Console.WriteLine("Original number: " + number);
+            //Console.WriteLine("Rounded to nearest whole number: " + nearest);
+            //Console.WriteLine("Always rounded up: " + roundedUp);
+            //Console.WriteLine("Always rounded down: " + roundedDown);
+
+
+            //Task 10: Word Position Finder
+            //Console.WriteLine("Enter a sentence:"); 
+            //string sentence = Console.ReadLine();
+            //Console.Write("Enter a word to search for: ");
+            //string word = Console.ReadLine();
+
+            //bool contains = sentence.Contains(word);
+            //if (contains)
+            //{
+            //    // IndexOf returns the position of the FIRST occurrence of the word
+            //    int firstPosition = sentence.IndexOf(word);
+            //    // LastIndexOf returns the position of the LAST occurrence of the word
+            //    int lastPosition = sentence.LastIndexOf(word);
+
+            //    Console.WriteLine("Word found!");
+            //    Console.WriteLine("First occurrence at position: " + firstPosition);
+            //    Console.WriteLine("Last occurrence at position: " + lastPosition);
+            //}
+            //else
+            //{
+            //    // If Contains returns false, the word is not in the sentence at all
+            //    Console.WriteLine("Word not found in the sentence.");
+            //}
 
 
 
+
+            //Task 11: OTP
+            //Random random = new Random();
+            //int otp = random.Next(1000, 9999);
+            //Console.WriteLine("Generated OTP: " + otp);
+            //Console.WriteLine("Please enter the OTP:");
+            //for (int attempt = 1; attempt <= 3; attempt++)
+            //{
+            //    try
+            //    {
+            //        Console.WriteLine("Please enter the OTP:");
+            //        int userInput = Convert.ToInt32(Console.ReadLine());
+            //        if (userInput == otp)
+            //        {
+            //            Console.WriteLine("OTP verified successfully!");
+            //        }
+
+            //        else
+            //        {
+            //            throw new Exception("Invalid OTP. Please try again.");
+            //        }
+
+
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        Console.WriteLine(ex.Message);
+
+            //    }
+
+            //    // After the third failed attempt
+            //    if (attempt == 3)
+            //    {
+            //        Console.WriteLine("Verification Failed");
+            //    }
+
+            //}
+
+
+            //Task 12: age calculator
+            Console.WriteLine("Enter your date of birth (e.g., 1990-05-15):");
+            string dobInput = Console.ReadLine();
+            DateTime birthday = DateTime.Parse(dobInput);
+            DateTime today = DateTime.Today;
+            int age = today.Year - birthday.Year; // Calculate the initial age
+                                                
+            if (today.Month < birthday.Month || today.Month == birthday.Month && today.Day < birthday.Day)
+            {
+                age--; //subtract one year if the birthday hasn't occurred yet this year
+            }
+
+         
+            Console.WriteLine("Age: " + age);
+            Console.WriteLine("You were born on a " + birthday.DayOfWeek);
 
         }
     }
