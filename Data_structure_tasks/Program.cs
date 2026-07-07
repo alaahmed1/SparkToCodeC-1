@@ -33,7 +33,19 @@
             //    }
             //} while (true);
 
+            // Task 3: Stack to store browser history
+            Stack<string> history = new Stack<string>();
+            for (int i = 0; i < 3; i++)
+            {
+                Console.Write("Enter website URL " + (i + 1) + ": ");
+                string url = Console.ReadLine();
 
+                history.Push(url);
+            }
+            string previousPage = history.Pop(); // Simulate pressing the back button once
+
+            Console.WriteLine("You pressed the back button.");
+            Console.WriteLine("You are now on: " + history.Peek());
 
         }
     }
