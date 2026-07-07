@@ -22,6 +22,18 @@
             // The values are stored in non-contiguous memory locations and can be accessed using an index.
             // Lists are useful when you need to store a collection of related data that may change in size.
             //Task 2: Dynamic To-Do List
+            //List <string> list = new List<string>(); //declare list to hold to do tasks
+            //do
+            //{
+            //    Console.WriteLine("Enter a task to add to your to-do list (or type 'exit' to finish):");
+            //    string task = Console.ReadLine();
+            //    if (task.ToLower() != "exit")
+            //    {
+            //        list.Add(task); //add the task to the list
+            //    }
+            //} while (true);
+
+
 
         }
     }
