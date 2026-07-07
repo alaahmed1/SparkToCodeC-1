@@ -16,7 +16,7 @@
             //Console.WriteLine("the square of the number is: " + Square(number));
 
             //Task 4: Display Menu
-            DisplayMenu()
+            DisplayMenu();
 
         }
         //static void PrintWelcome(string name) // Personalized Welcome Function
