@@ -34,18 +34,36 @@
             //} while (true);
 
             // Task 3: Stack to store browser history
-            Stack<string> history = new Stack<string>();
-            for (int i = 0; i < 3; i++)
-            {
-                Console.Write("Enter website URL " + (i + 1) + ": ");
-                string url = Console.ReadLine();
+            //Stack<string> history = new Stack<string>();
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    Console.Write("Enter website URL " + (i + 1) + ": ");
+            //    string url = Console.ReadLine();
 
-                history.Push(url);
-            }
-            string previousPage = history.Pop(); // Simulate pressing the back button once
+            //    history.Push(url);
+            //}
+            //string previousPage = history.Pop(); // Simulate pressing the back button once
 
-            Console.WriteLine("You pressed the back button.");
-            Console.WriteLine("You are now on: " + history.Peek());
+            //Console.WriteLine("You pressed the back button.");
+            //Console.WriteLine("You are now on: " + history.Peek());
+
+
+            // Task 4: Customer Service Queue
+            //Queue<string> customers = new Queue<string>();
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    Console.Write("Enter customer name " + (i + 1) + ": ");
+            //    string name = Console.ReadLine();
+
+            //    customers.Enqueue(name);
+            //}
+
+            
+            //string servedCustomer = customers.Dequeue(); //getting the first customer in the queue and removing it from the queue
+
+            //Console.WriteLine("\nCustomer served: " + servedCustomer);
+
+
 
         }
     }
