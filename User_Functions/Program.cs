@@ -14,6 +14,10 @@
             //Console.Write("enter a number to calculate its square: ");
             //int number = Convert.ToInt32(Console.ReadLine());
             //Console.WriteLine("the square of the number is: " + Square(number));
+
+            //Task 4: Display Menu
+            DisplayMenu()
+
         }
         //static void PrintWelcome(string name) // Personalized Welcome Function
         //{
@@ -25,5 +29,13 @@
         //    int result = number * number;
         //    return result;
         //}
+
+        static void DisplayMenu() //task 4
+        {
+            Console.WriteLine("menu");
+            Console.WriteLine("1) Start");
+            Console.WriteLine("2) Help");
+            Console.WriteLine("3) Exit");
+        }
     }
 }
