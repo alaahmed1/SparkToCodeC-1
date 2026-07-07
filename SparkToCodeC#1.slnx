@@ -3,4 +3,5 @@
   <Project Path="CSharpdFirstProject/CSharpdFirstProject.csproj" />
   <Project Path="loops_C#/loops_C#.csproj" Id="7e2ae983-4543-4b5e-95ea-90e8e51f65a9" />
   <Project Path="task1_solution/task1_solution.csproj" Id="2fca059f-2c65-47f3-8643-978d4dc584c7" />
+  <Project Path="User_Functions/User_Functions.csproj" Id="fe244e8b-ab3d-46d8-9a31-537efc4b0d93" />
 </Solution>
