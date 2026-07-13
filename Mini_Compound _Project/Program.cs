@@ -56,7 +56,7 @@ namespace Mini_Compound__Project
                         listAllAccounts();
                         break;
                     case 7:
-                        // TODO: call your second custom service function here
+                        deleteAccount();
                         break;
                     case 8:
                         exitApp = true;
@@ -253,7 +253,22 @@ namespace Mini_Compound__Project
         }
 
         
-
+        static void deleteAccount()
+        {
+            Console.Write("Enter account number to delete: ");
+            string accNumber = Console.ReadLine();
+            int index = accountNumbers.IndexOf(accNumber);
+            if (index == -1)
+            {
+                Console.WriteLine("Error: Account number not found.");
+                return;
+            }
+            // Remove data from all three lists
+            customerNames.RemoveAt(index);
+            accountNumbers.RemoveAt(index);
+            balances.RemoveAt(index);
+            Console.WriteLine("Account " + accNumber + " deleted successfully.");
+        }
 
 
 
