@@ -67,7 +67,7 @@ namespace Mini_Compound__Project
                         break;
                 }
             }
-    }
+        }
 
         // ===================== SERVICE FUNCTIONS =====================
         // Each function owns ONE service end-to-end: it asks the user for
@@ -80,7 +80,7 @@ namespace Mini_Compound__Project
             string name = Console.ReadLine();
             Console.WriteLine("enter your acc number: ");
             string accNumber = Console.ReadLine();
-            
+
 
             if (accountNumbers.Contains(accNumber))
             {
@@ -124,7 +124,7 @@ namespace Mini_Compound__Project
         {
             Console.Write("Enter account number: ");
             string accNumber = Console.ReadLine();
-             
+
             int index = accountNumbers.IndexOf(accNumber);
             if (index == -1)
             {
@@ -138,7 +138,7 @@ namespace Mini_Compound__Project
             {
                 depositAmount = double.Parse(Console.ReadLine());
 
-            }
+}
             catch (Exception)
             {
                 Console.WriteLine("Invalid input for deposit amount. Please enter a valid number.");
@@ -152,11 +152,55 @@ namespace Mini_Compound__Project
         }
         static void WithdrawMoney()
         {
-            // TODO: implement this service (see Section 3 requirements)
+            Console.Write("enter your acc number: ");
+            string accNumber = Console.ReadLine();
+            int index = accountNumbers.IndexOf(accNumber);
+
+            if (index == -1)
+            {
+                Console.WriteLine("error: account not found");
+                return;
+            }
+
+            Console.Write("enter withdrawal amount: ");
+            double withdrawalamount;
+
+            try
+            { 
+                withdrawalamount = double.Parse(Console.ReadLine());
+                
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("erroe: invalid input");
+                return;
+            }
+
+            if (withdrawalamount > 0 && withdrawalamount <= balances[index])
+            {
+                balances[index] -= withdrawalamount;
+                
+            }
+            else
+            {
+                Console.WriteLine("Error: Invalid amount or insufficient balance.");
+            }
+
+            Console.WriteLine("withdrawal succeseful current amount is: " + balances[index]);
         }
         static void ShowBalance()
         {
-            // TODO: implement this service (see Section 3 requirements)
+            Console.Write("enter your acc number: ");
+            string accNumber = Console.ReadLine();
+            int index = accountNumbers.IndexOf(accNumber);
+
+            if (index == -1)
+            {
+                Console.WriteLine("error: account not found");
+                return;
+            }
+
+            Console.WriteLine("your current balance is: " + balances[index]);
         }
         static void TransferAmount()
         {
