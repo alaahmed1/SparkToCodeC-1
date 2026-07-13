@@ -1,10 +1,24 @@
 ﻿namespace OOP
 {
+
+    //we define classes here 
+    //syntax
+    // class classname{    }
+    // classes saves information in a single space
+    //primitive data types: int , string (multiple data types saved in a class)
+    // memory is allocated for the class when it is created 
+    //memory is where the program stores data while it is running
+    // types of memory: stack and heap 
+    //stack: stores local value types (int, float, bool, char), short-lived, automatically managed, faster access
+    //heap: stores reference types (string, class, array) //dynamically allocated, long-lived, manually managed, slower access
+
+
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+           
+            
         }
     }
 }
