@@ -53,7 +53,7 @@ namespace Mini_Compound__Project
                         TransferAmount();
                         break;
                     case 6:
-                        // TODO: call your first custom service function here
+                        listAllAccounts();
                         break;
                     case 7:
                         // TODO: call your second custom service function here
@@ -242,7 +242,17 @@ namespace Mini_Compound__Project
 
 
         //CUSTOM SERVICE FUNCTIONS 
-       
+        static void listAllAccounts()
+        {
+            Console.WriteLine("List of all accounts:");
+            for (int i = 0; i < accountNumbers.Count; i++)
+            {
+                Console.WriteLine($"Account Number: {accountNumbers[i]}, Customer Name: {customerNames[i]}, Balance: {balances[i]}");
+            }
+
+        }
+
+        
 
 
 
