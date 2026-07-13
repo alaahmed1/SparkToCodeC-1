@@ -20,7 +20,12 @@
         public int age { get; set; }
         public string gender { get; set; }
         private int id { get; set; } //only accessed within the class
+        int phone { get; set; } // by default its private
 
+        public void PhoneNum (int Phone)
+        {
+            Phone = phone; // set the phone number to the private field
+        }
     }
         internal class Program
     {
