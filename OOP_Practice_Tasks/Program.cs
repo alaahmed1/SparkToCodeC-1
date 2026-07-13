@@ -3,10 +3,11 @@
 namespace OOP_Practice_Tasks
 {
 
-    public class BankAccount {
+    public class BankAccount
+    {
         public int AccountNumber { get; set; }
         public string HolderName { get; set; }
-        public double Balance {  get; set; }
+        public double Balance { get; set; }
 
         public void Deposit(double amount)
         {
@@ -41,7 +42,7 @@ namespace OOP_Practice_Tasks
         }
     }
 
-    public class Student 
+    public class Student
     {
         public int Grade { get; set; }
         public string Name { get; set; }
@@ -49,7 +50,7 @@ namespace OOP_Practice_Tasks
         private string Email { get; set; }
         int age { get; set; } //default private
 
-        public void Register (string Email)
+        public void Register(string Email)
         {
             Email = Email; // set the email to the private field
             SendEmail("You have been registered successfully."); // call the private method to send a notification
@@ -62,10 +63,11 @@ namespace OOP_Practice_Tasks
     }
 
 
-    public class Product { 
+    public class Product
+    {
         public string ProductName { get; set; }
         public double Price { get; set; }
-        public int StockQuality {  get; set; }
+        public int StockQuality { get; set; }
 
         public void sell(int quantity)
         {
@@ -100,7 +102,7 @@ namespace OOP_Practice_Tasks
         private void LogTransaction(string message)
         {
             // Code to log transaction details
-        }   
+        }
 
     }
 
@@ -112,7 +114,40 @@ namespace OOP_Practice_Tasks
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+
+            bool Exit = false;
+            while (!Exit)
+            {
+                //print options to the user
+
+
+
+            }
+            try
+            {
+                Console.WriteLine("Enter your choice: ");
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
+            }
+
+            switch (choice)
+            {
+
+                //all choices and their respective methods to be called here
+            }
+
+            // solving main tasks here
+
+            //adding data to the BankAccount class
+            BankAccount B1 = new BankAccount();
+            //B1.
         }
     }
 }
+
+
+// declare all the functions for the user to call
+
