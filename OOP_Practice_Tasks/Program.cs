@@ -1,6 +1,114 @@
-﻿namespace OOP_Practice_Tasks
+﻿using System.Dynamic;
+
+namespace OOP_Practice_Tasks
 {
-    internal class Program
+
+    public class BankAccount {
+        public int AccountNumber { get; set; }
+        public string HolderName { get; set; }
+        public double Balance {  get; set; }
+
+        public void Deposit(double amount)
+        {
+            Balance += amount;
+        }
+
+        public void Withdraw(double amount)
+        {
+            if (amount <= Balance)
+            {
+                Balance -= amount;
+            }
+            else
+            {
+                Console.WriteLine("Insufficient funds.");
+            }
+        }
+
+        public void CheckBalance()
+        {
+            Console.WriteLine($"Account Number: {AccountNumber}, Holder Name: {HolderName}, Balance: {Balance}");
+        }
+
+        private void PrintInformation()
+        {
+            Console.WriteLine($"Account Number: {AccountNumber}, Holder Name: {HolderName}, Balance: {Balance}");
+        }
+
+        private void SendEmailNotification(string message)
+        {
+            // Code to send email notification
+        }
+    }
+
+    public class Student 
+    {
+        public int Grade { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+        private string Email { get; set; }
+        int age { get; set; } //default private
+
+        public void Register (string Email)
+        {
+            Email = Email; // set the email to the private field
+            SendEmail("You have been registered successfully."); // call the private method to send a notification
+        }
+
+        private void SendEmail(string message)
+        {
+            // Code to send email notification
+        }
+    }
+
+
+    public class Product { 
+        public string ProductName { get; set; }
+        public double Price { get; set; }
+        public int StockQuality {  get; set; }
+
+        public void sell(int quantity)
+        {
+            if (quantity <= StockQuality)
+            {
+                StockQuality -= quantity;
+                Console.WriteLine($"{quantity} units of {ProductName} sold.");
+            }
+            else
+            {
+                Console.WriteLine("Insufficient stock.");
+            }
+        }
+
+        public void Restock(int quantity)
+        {
+            StockQuality += quantity;
+            Console.WriteLine($"{quantity} units of {ProductName} restocked.");
+        }
+
+        public GetventoryValue()
+        {
+            PrintDetails();
+            double inventoryValue = Price * StockQuality;
+        }
+
+        private void PrintDetails()
+        {
+            Console.WriteLine($"Product Name: {ProductName}, Price: {Price}, Stock Quality: {StockQuality}");
+        }
+
+        private void LogTransaction(string message)
+        {
+            // Code to log transaction details
+        }   
+
+    }
+
+
+
+
+
+    public class Program
     {
         static void Main(string[] args)
         {
