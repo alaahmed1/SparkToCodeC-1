@@ -1,0 +1,276 @@
+﻿using System;
+using System.Collections.Generic;
+
+
+namespace Mini_Compound__Project
+{
+    internal class Program
+    {
+        static List<string> customerNames = new List<string>();
+        static List<string> accountNumbers = new List<string>();
+        static List<double> balances = new List<double>();
+        static void Main(string[] args)
+        {
+            bool exitApp = false;
+            while (!exitApp)
+            {
+                Console.WriteLine("\n===== Welcome to Spark Bank =====");
+                Console.WriteLine("1. Add New Account");
+                Console.WriteLine("2. Deposit Money");
+                Console.WriteLine("3. Withdraw Money");
+                Console.WriteLine("4. Show Balance");
+                Console.WriteLine("5. Transfer Amount");
+                Console.WriteLine("6. <your 1st custom service - choose a name>");
+                Console.WriteLine("7. <your 2nd custom service - choose a name>");
+                Console.WriteLine("8. Exit");
+                Console.Write("Choose an option: ");
+
+                int choice;
+                try
+                {
+                    choice = int.Parse(Console.ReadLine());
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Invalid input. Please enter a number from 1 to 8.");
+                    continue; // skip the rest of this loop pass, show the menu again
+                }
+                switch (choice)
+                {
+                    case 1:
+                        AddAccount();
+                        break;
+                    case 2:
+                        DepositMoney();
+                        break;
+                    case 3:
+                        WithdrawMoney();
+                        break;
+                    case 4:
+                        ShowBalance();
+                        break;
+                    case 5:
+                        TransferAmount();
+                        break;
+                    case 6:
+                        listAllAccounts();
+                        break;
+                    case 7:
+                        deleteAccount();
+                        break;
+                    case 8:
+                        exitApp = true;
+                        Console.WriteLine("Thank you for banking with Spark Bank. Goodbye!");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid option, please choose between 1 and 8.");
+                        break;
+                }
+            }
+        }
+
+        // ===================== SERVICE FUNCTIONS =====================
+        // Each function owns ONE service end-to-end: it asks the user for
+        // whatever it needs, validates it, updates the shared lists, and
+        // prints the outcome. Main never reads input or prints results
+        // for these services - it only shows the menu and calls them.
+        static void AddAccount()
+        {
+            Console.Write("enter your name: ");
+            string name = Console.ReadLine();
+            Console.WriteLine("enter your acc number: ");
+            string accNumber = Console.ReadLine();
+
+
+            if (accountNumbers.Contains(accNumber))
+            {
+                Console.WriteLine("Account number already exists. Please try again.");
+                return; // exit the function early if the account number is not unique
+            }
+
+            double initialDeposit;
+            Console.Write("Enter initial deposit amount: ");
+
+            try
+            {
+                initialDeposit = double.Parse(Console.ReadLine());
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Invalid input for initial deposit. Please enter a valid number.");
+                return; // exit the function early if the input is not a valid number
+            }
+
+            if (initialDeposit <= 0)
+            {
+                Console.WriteLine("Error: initial deposit cannot be negative.");
+                return;
+            }
+
+            // Add data to all three lists
+            customerNames.Add(name);
+            accountNumbers.Add(accNumber);
+            balances.Add(initialDeposit);
+
+            Console.WriteLine("\nAccount created successfully!");
+            Console.WriteLine("Customer Name : " + name);
+            Console.WriteLine("Account Number: " + accNumber);
+            Console.WriteLine("Balance       : " + initialDeposit);
+        }
+
+
+        static void DepositMoney()
+        {
+            Console.Write("Enter account number: ");
+            string accNumber = Console.ReadLine();
+
+            int index = accountNumbers.IndexOf(accNumber);
+            if (index == -1)
+            {
+                Console.WriteLine("Account number not found. Please try again.");
+                return; // exit the function early if the account number is not found
+            }
+
+            double depositAmount;
+            Console.Write("Enter deposit amount: ");
+            try
+            {
+                depositAmount = double.Parse(Console.ReadLine());
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Invalid input for deposit amount. Please enter a valid number.");
+                return; // exit the function early if the input is not a valid number
+
+            }
+
+            balances[index] += depositAmount;
+            Console.WriteLine("Deposit successful! New balance for account" + accNumber + ":" + balances[index]);
+
+        }
+        static void WithdrawMoney()
+        {
+            Console.Write("enter your acc number: ");
+            string accNumber = Console.ReadLine();
+            int index = accountNumbers.IndexOf(accNumber);
+
+            if (index == -1)
+            {
+                Console.WriteLine("error: account not found");
+                return;
+            }
+
+            Console.Write("enter withdrawal amount: ");
+            double withdrawalamount;
+
+            try
+            {
+                withdrawalamount = double.Parse(Console.ReadLine());
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("erroe: invalid input");
+                return;
+            }
+
+            if (withdrawalamount > 0 && withdrawalamount <= balances[index])
+            {
+                balances[index] -= withdrawalamount;
+
+            }
+            else
+            {
+                Console.WriteLine("Error: Invalid amount or insufficient balance.");
+            }
+
+            Console.WriteLine("withdrawal succeseful current amount is: " + balances[index]);
+        }
+        static void ShowBalance()
+        {
+            Console.Write("enter your acc number: ");
+            string accNumber = Console.ReadLine();
+            int index = accountNumbers.IndexOf(accNumber);
+
+            if (index == -1)
+            {
+                Console.WriteLine("error: account not found");
+                return;
+            }
+
+            Console.WriteLine("your current balance is: " + balances[index]);
+        }
+        static void TransferAmount()
+        {
+            Console.Write("enter your acc number: ");
+            string senderAccNumber = Console.ReadLine();
+            Console.WriteLine("enter your reciever number: ");
+            string receiverAccNumber = Console.ReadLine();
+
+            int indexSender = accountNumbers.IndexOf(senderAccNumber);
+            int indexReceiver = accountNumbers.IndexOf(receiverAccNumber);
+
+            if (indexSender == -1 || indexReceiver == -1)
+            {
+                Console.WriteLine("Error: One or both account numbers do not exist.");
+                return;
+            }
+
+            Console.Write("enter the amount to transfer: ");
+            double transferAmount;
+
+            try
+            {
+                transferAmount = double.Parse(Console.ReadLine());
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Error: Invalid input for transfer amount.");
+                return;
+
+            }
+
+            balances[indexSender] -= transferAmount;
+            balances[indexReceiver] -= transferAmount;
+
+            Console.WriteLine("Transfer successful! New balance for sender account " + senderAccNumber + ": " + balances[indexSender]);
+
+        }
+
+
+        //CUSTOM SERVICE FUNCTIONS 
+        static void listAllAccounts()
+        {
+            Console.WriteLine("List of all accounts:");
+            for (int i = 0; i < accountNumbers.Count; i++)
+            {
+                Console.WriteLine($"Account Number: {accountNumbers[i]}, Customer Name: {customerNames[i]}, Balance: {balances[i]}");
+            }
+
+        }
+
+        
+        static void deleteAccount()
+        {
+            Console.Write("Enter account number to delete: ");
+            string accNumber = Console.ReadLine();
+            int index = accountNumbers.IndexOf(accNumber);
+            if (index == -1)
+            {
+                Console.WriteLine("Error: Account number not found.");
+                return;
+            }
+            // Remove data from all three lists
+            customerNames.RemoveAt(index);
+            accountNumbers.RemoveAt(index);
+            balances.RemoveAt(index);
+            Console.WriteLine("Account " + accNumber + " deleted successfully.");
+        }
+
+
+
+    }
+}
