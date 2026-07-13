@@ -138,7 +138,7 @@ namespace Mini_Compound__Project
             {
                 depositAmount = double.Parse(Console.ReadLine());
 
-}
+            }
             catch (Exception)
             {
                 Console.WriteLine("Invalid input for deposit amount. Please enter a valid number.");
@@ -166,9 +166,9 @@ namespace Mini_Compound__Project
             double withdrawalamount;
 
             try
-            { 
+            {
                 withdrawalamount = double.Parse(Console.ReadLine());
-                
+
             }
             catch (Exception)
             {
@@ -179,7 +179,7 @@ namespace Mini_Compound__Project
             if (withdrawalamount > 0 && withdrawalamount <= balances[index])
             {
                 balances[index] -= withdrawalamount;
-                
+
             }
             else
             {
@@ -204,13 +204,48 @@ namespace Mini_Compound__Project
         }
         static void TransferAmount()
         {
-            // TODO: implement this service (see Section 3 requirements)
+            Console.Write("enter your acc number: ");
+            string senderAccNumber = Console.ReadLine();
+            Console.WriteLine("enter your reciever number: ");
+            string receiverAccNumber = Console.ReadLine();
+
+            int indexSender = accountNumbers.IndexOf(senderAccNumber);
+            int indexReceiver = accountNumbers.IndexOf(receiverAccNumber);
+
+            if (indexSender == -1 || indexReceiver == -1)
+            {
+                Console.WriteLine("Error: One or both account numbers do not exist.");
+                return;
+            }
+
+            Console.Write("enter the amount to transfer: ");
+            double transferAmount;
+
+            try
+            {
+                transferAmount = double.Parse(Console.ReadLine());
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Error: Invalid input for transfer amount.");
+                return;
+
+            }
+
+            balances[indexSender] -= transferAmount;
+            balances[indexReceiver] -= transferAmount;
+
+            Console.WriteLine("Transfer successful! New balance for sender account " + senderAccNumber + ": " + balances[indexSender]);
+
         }
-        // TODO: write two more void, no-parameter functions here for
-        // your own custom services (option 6 and option 7)
+
+
+        //CUSTOM SERVICE FUNCTIONS 
+       
+
 
 
 
     }
-
 }
