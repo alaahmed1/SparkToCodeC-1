@@ -16,9 +16,10 @@
     {
         //fields (variables)
         //access modifier 
-        public string name;
-        public int age;
-        public string gender;
+        public string name {  get; set; }
+        public int age { get; set; }
+        public string gender { get; set; }
+        private int id { get; set; } //only accessed within the class
 
     }
         internal class Program
