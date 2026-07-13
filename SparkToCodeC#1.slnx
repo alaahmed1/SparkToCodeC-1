@@ -4,6 +4,7 @@
   <Project Path="Data_structure_tasks/Data_structure_tasks.csproj" Id="8f867218-d5d2-4a8f-a931-b0f30076f9c7" />
   <Project Path="loops_C#/loops_C#.csproj" Id="7e2ae983-4543-4b5e-95ea-90e8e51f65a9" />
   <Project Path="Mini_Compound _Project/Mini_Compound _Project.csproj" Id="7fa2cd00-6b67-4e60-9831-42cc5d18d97a" />
+  <Project Path="OOP/OOP.csproj" Id="352a4983-b10c-4ada-9278-3ee7a02a2db4" />
   <Project Path="task1_solution/task1_solution.csproj" Id="2fca059f-2c65-47f3-8643-978d4dc584c7" />
   <Project Path="User_Functions/User_Functions.csproj" Id="fe244e8b-ab3d-46d8-9a31-537efc4b0d93" />
 </Solution>
