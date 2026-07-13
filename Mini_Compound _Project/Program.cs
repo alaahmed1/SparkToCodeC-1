@@ -80,46 +80,74 @@ namespace Mini_Compound__Project
             string name = Console.ReadLine();
             Console.WriteLine("enter your acc number: ");
             string accNumber = Console.ReadLine();
-            double balance = 0;
+            
 
             if (accountNumbers.Contains(accNumber))
             {
                 Console.WriteLine("Account number already exists. Please try again.");
+                return; // exit the function early if the account number is not unique
             }
-            else
+
+            double initialDeposit;
+            Console.Write("Enter initial deposit amount: ");
+
+            try
             {
-                Console.WriteLine("enter your initial balance: ");
+                initialDeposit = double.Parse(Console.ReadLine());
 
-                
-                try
-                {
-                    balance = double.Parse(Console.ReadLine());
-                }
-                catch (Exception)
-                {
-                    Console.WriteLine("Invalid input. Please enter a valid number for the balance.");
-                }
-
-                if (balance <= 0)
-                {
-                    Console.WriteLine("Initial deposit cannot be negative.");
-                }
-
-                // Add data to all three lists
-                customerNames.Add(name);
-                accountNumbers.Add(accNumber);
-                balances.Add(balance);
-
-                Console.WriteLine("\nAccount created successfully!");
-                Console.WriteLine("Customer Name : " + name);
-                Console.WriteLine("Account Number: " + accountNumbers);
-                Console.WriteLine("Balance       : " + balance);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Invalid input for initial deposit. Please enter a valid number.");
+                return; // exit the function early if the input is not a valid number
             }
 
+            if (initialDeposit <= 0)
+            {
+                Console.WriteLine("Error: initial deposit cannot be negative.");
+                return;
+            }
+
+            // Add data to all three lists
+            customerNames.Add(name);
+            accountNumbers.Add(accNumber);
+            balances.Add(initialDeposit);
+
+            Console.WriteLine("\nAccount created successfully!");
+            Console.WriteLine("Customer Name : " + name);
+            Console.WriteLine("Account Number: " + accNumber);
+            Console.WriteLine("Balance       : " + initialDeposit);
         }
+
+
         static void DepositMoney()
         {
-            // TODO: implement this service (see Section 3 requirements)
+            Console.Write("Enter account number: ");
+            string accNumber = Console.ReadLine();
+             
+            int index = accountNumbers.IndexOf(accNumber);
+            if (index == -1)
+            {
+                Console.WriteLine("Account number not found. Please try again.");
+                return; // exit the function early if the account number is not found
+            }
+
+            double depositAmount;
+            Console.Write("Enter deposit amount: ");
+            try
+            {
+                depositAmount = double.Parse(Console.ReadLine());
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Invalid input for deposit amount. Please enter a valid number.");
+                return; // exit the function early if the input is not a valid number
+
+            }
+
+            balances[index] += depositAmount;
+            Console.WriteLine("Deposit successful! New balance for account" + accNumber + ":" + balances[index]);
 
         }
         static void WithdrawMoney()
