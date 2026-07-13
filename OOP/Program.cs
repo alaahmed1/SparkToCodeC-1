@@ -1,4 +1,4 @@
-﻿namespace OOP
+﻿namespace OOP_basics
 {
 
     //we define classes here 
@@ -15,7 +15,7 @@
     class Person
     {
         //fields (variables)
-        //access modifier 
+        //access modifier  (public, private, protected, internal) + data type + name
         public string name {  get; set; }
         public int age { get; set; }
         public string gender { get; set; }
