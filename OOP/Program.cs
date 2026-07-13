@@ -12,13 +12,22 @@
     //stack: stores local value types (int, float, bool, char), short-lived, automatically managed, faster access
     //heap: stores reference types (string, class, array) //dynamically allocated, long-lived, manually managed, slower access
 
+    class Person
+    {
+        //fields (variables)
+        public string name;
+        public int age;
+        public string gender;
 
-    internal class Program
+    }
+        internal class Program
     {
         static void Main(string[] args)
         {
-           
-            
+            //create an object of the class Person 
+            Person person1 = new Person(); //declare an object of the class Person
+                                           //object is an instance of a class
+                                           //Person is a reference type, so person1 is a reference to the object in memory
         }
     }
 }
