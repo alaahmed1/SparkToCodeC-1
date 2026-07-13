@@ -25,6 +25,13 @@
         public void PhoneNum (int Phone)
         {
             Phone = phone; // set the phone number to the private field
+            SendText(); // call the private method to send a text message)
+
+        }
+
+        private void SendText()
+        {
+            //code to send text message
         }
     }
         internal class Program
