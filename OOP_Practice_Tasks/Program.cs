@@ -175,7 +175,7 @@ namespace OOP_Practice_Tasks
                     case 1: ViewAccountDetails(); break;
                     case 2: UpdateStudentAddress(); break;
                     case 3: MakeDeposit(); break;
-                    //case 4: MakeWithdrawal(); break;
+                    case 4: MakeWithdrawal(); break;
                     //case 5: ViewProductDetails(); break;
                     //case 6: RegisterStudent(); break;
                     //case 7: CompareAccountBalances(); break;
@@ -281,6 +281,34 @@ namespace OOP_Practice_Tasks
                 Console.WriteLine("Invalid choice. Please select 1 or 2.");
             }
         }
+
+
+        //Task 4: Make a Withdrawal
+        static void MakeWithdrawal()
+        {
+            Console.WriteLine("Choose acc 1 or 2: ");
+            int accChoice = Convert.ToInt32(Console.ReadLine());
+            int amount;
+            if (accChoice == 1)
+            {
+                Console.WriteLine("Enter amount to Withdraw: ");
+                amount = Convert.ToInt32(Console.ReadLine());
+                B1.Withdraw(amount);
+                Console.WriteLine("Deposit successful. New balance: " + B1.Balance);
+            }
+            else if (accChoice == 2)
+            {
+                Console.WriteLine("Enter amount to Withdraw: ");
+                amount = Convert.ToInt32(Console.ReadLine());
+                B2.Withdraw(amount);
+                Console.WriteLine("Deposit successful. New balance: " + B2.Balance);
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice. Please select 1 or 2.");
+            }
+        }
+
 
 
     }
