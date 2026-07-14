@@ -113,6 +113,16 @@ namespace OOP_Practice_Tasks
 
     public class Program
     {
+        //six objects
+        static BankAccount B1 = new BankAccount { AccountNumber = 1163, HolderName = "Karim", Balance = 120 };
+        static BankAccount B2 = new BankAccount { AccountNumber = 1164, HolderName = "Ahmed", Balance = 150 };
+
+        static Student student1 = new Student { Name = "Ali", Address = "Muscat", Grade = 65 };
+        static Student student2 = new Student { Name = "Sara", Address = "Salalah", Grade = 75 };
+
+        static Product product1 = new Product { ProductName = "Laptop", Price = 5.500, StockQuality = 10 };
+        static Product product2 = new Product { ProductName = "Wirless Mouse", Price = 15.750, StockQuality = 50};
+
         static void Main(string[] args)
         {
 
