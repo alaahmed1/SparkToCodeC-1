@@ -378,7 +378,58 @@ namespace OOP_Practice_Tasks
         }
 
         //Task 8: Restock Product & Stock Level Check
+        static void RestockProduct()
+        {
+            Console.WriteLine("Pick a product 1 or 2: ");
+            int pronum = Convert.ToInt32(Console.ReadLine());
 
+            int amount;
+            if (pronum == 1)
+            {
+                Console.WriteLine("enter the quantity you want to add to product 1: ");
+                amount = Convert.ToInt32(Console.ReadLine());
+                product1.Restock(amount);
+
+                if (product1.StockQuantity < 10)
+                {
+                    Console.WriteLine("Low in Stock");
+
+                }
+                else if (product1.StockQuantity >= 10 && product1.StockQuantity<=49)
+                {
+                    Console.WriteLine("Moderate");
+                }
+                else
+                {
+                    Console.WriteLine("well stocked");
+                }
+
+            }
+            else if (pronum == 2)
+            {
+                Console.WriteLine("enter the quantity you want to add to product 2: ");
+                amount = Convert.ToInt32(Console.ReadLine());
+                product2.Restock(amount);
+
+                if (product2.StockQuantity < 10)
+                {
+                    Console.WriteLine("Low in Stock");
+
+                }
+                else if (product2.StockQuantity >= 10 && product2.StockQuantity <= 49)
+                {
+                    Console.WriteLine("Moderate");
+                }
+                else
+                {
+                    Console.WriteLine("well stocked");
+                }
+            }
+            else
+            {
+                Console.WriteLine("invalid produc number please choose 1 or 2");
+            }
+        }
 
     }
 }
