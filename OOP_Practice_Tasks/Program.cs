@@ -136,30 +136,27 @@ namespace OOP_Practice_Tasks
                 Console.WriteLine("1. View Account Details");
 
                 Console.WriteLine("Enter your choice: ");
+                int choice;
+                try
+                {
+                    choice = int.Parse(Console.ReadLine());
+                }
+
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"An error occurred: {ex.Message}");
+                    continue;
+                }
+
+                switch (choice)
+                {
+
+                    //all choices and their respective methods to be called here
+                }
             }
-            int choice; 
-            try
-            {
-               choice = int.Parse(Console.ReadLine());
-            }
+            
 
-            catch (Exception ex)
-            {
-                Console.WriteLine($"An error occurred: {ex.Message}");
-                continue; 
-            }
-
-            switch (choice)
-            {
-
-                //all choices and their respective methods to be called here
-            }
-
-            // solving main tasks here
-
-            //adding data to the BankAccount class
-            BankAccount B1 = new BankAccount();
-            //B1.
+            
         }
     }
 }
