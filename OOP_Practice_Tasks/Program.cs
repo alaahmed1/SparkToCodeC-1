@@ -181,7 +181,7 @@ namespace OOP_Practice_Tasks
                     case 7: CompareAccountBalances(); break;
                     case 8: RestockProduct(); break;
                     case 9: TransferBetweenAccounts(); break;
-                    //case 10: UpdateStudentGrade(); break;
+                    case 10: UpdateStudentGrade(); break;
                     //case 11: StudentReportCard(); break;
                     //case 12: AccountHealthStatus(); break;
                     //case 13: BulkSaleWithRevenue(); break;
@@ -491,7 +491,65 @@ namespace OOP_Practice_Tasks
 
 
         }
-}  }
+
+        //task 10: Update Student Grade (Validated)
+        static void UpdateStudentGrade()
+        {
+            Console.Write("Choose student (1 or 2): ");
+            int choice = Convert.ToInt32(Console.ReadLine());
+            if (choice == 1){ 
+                Console.WriteLine("enter new garde between 0-100: ");
+                int newGrade;
+                try
+                {
+                    newGrade = Convert.ToInt32(Console.ReadLine());
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid number.");
+                    return;
+                }
+                if (newGrade < 0 || newGrade > 100)
+                {
+                    Console.WriteLine("Grade must be between 0 and 100.");
+                    return;
+                }
+                student1.Grade = newGrade;
+                Console.WriteLine("Student " + student1.Name + " new grade is: " + student1.Grade);
+            } 
+            else if(choice == 2)
+            {
+                Console.WriteLine("enter new garde between 0-100: ");
+                int newGrade;
+                try
+                {
+                    newGrade = Convert.ToInt32(Console.ReadLine());
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid number.");
+                    return;
+                }
+                if (newGrade < 0 || newGrade > 100)
+                {
+                    Console.WriteLine("Grade must be between 0 and 100.");
+                    return;
+                }
+                student2.Grade = newGrade;
+                Console.WriteLine("Student " + student2.Name + " new grade is: " + student2.Grade);
+            }
+            else
+            {
+                Console.WriteLine("Invalid student choice.");
+            }
+
+
+
+        }
+
+
+    }
+}
 
 
 
