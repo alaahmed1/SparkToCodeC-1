@@ -28,7 +28,8 @@ namespace OOP_Practice_Tasks
 
         public void CheckBalance()
         {
-            Console.WriteLine($"Account Number: {AccountNumber}, Holder Name: {HolderName}, Balance: {Balance}");
+            PrintInformation();
+            Console.WriteLine(Balance);
         }
 
         private void PrintInformation()
