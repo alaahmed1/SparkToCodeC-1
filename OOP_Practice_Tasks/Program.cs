@@ -1,4 +1,5 @@
 ﻿using System.Dynamic;
+using System.Reflection.Metadata.Ecma335;
 
 namespace OOP_Practice_Tasks
 {
@@ -123,6 +124,8 @@ namespace OOP_Practice_Tasks
         static Product product1 = new Product { ProductName = "Laptop", Price = 5.500, StockQuality = 10 };
         static Product product2 = new Product { ProductName = "Wirless Mouse", Price = 15.750, StockQuality = 50};
 
+        public static object Continue { get; private set; }
+
         static void Main(string[] args)
         {
 
@@ -130,18 +133,20 @@ namespace OOP_Practice_Tasks
             while (!Exit)
             {
                 //print options to the user
+                Console.WriteLine("1. View Account Details");
 
-
-
+                Console.WriteLine("Enter your choice: ");
             }
+            int choice; 
             try
             {
-                Console.WriteLine("Enter your choice: ");
+               choice = int.Parse(Console.ReadLine());
             }
 
             catch (Exception ex)
             {
                 Console.WriteLine($"An error occurred: {ex.Message}");
+                continue; 
             }
 
             switch (choice)
