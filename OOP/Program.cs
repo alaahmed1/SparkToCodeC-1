@@ -1,0 +1,60 @@
+﻿namespace OOP_basics
+{
+
+    //we define classes here 
+    //syntax
+    // class classname{    }
+    // classes saves information in a single space
+    //primitive data types: int , string (multiple data types saved in a class)
+    // memory is allocated for the class when it is created 
+    //memory is where the program stores data while it is running
+    // types of memory: stack and heap 
+    //stack: stores local value types (int, float, bool, char), short-lived, automatically managed, faster access
+    //heap: stores reference types (string, class, array) //dynamically allocated, long-lived, manually managed, slower access
+
+    class Person
+    {
+        //fields (variables)
+        //access modifier  (public, private, protected, internal) + data type + name
+        public string name {  get; set; }
+        public int age { get; set; }
+        public string gender { get; set; }
+        private int id { get; set; } //only accessed within the class
+        int phone { get; set; } // by default its private
+
+        public void PhoneNum (int Phone)
+        {
+            Phone = phone; // set the phone number to the private field
+            SendText(); // call the private method to send a text message)
+
+        }
+
+        private void SendText()
+        {
+            //code to send text message
+        }
+    }
+        internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //create an object of the class Person 
+            Person person1 = new Person(); //declare an object of the class Person
+                                           //object is an instance of a class
+                                           //Person is a reference type, so person1 is a reference to the object in memory
+
+            person1.name = "Test"; //add name 
+            person1.age = 5;
+            person1.gender = "female";
+
+            //printing person1 details
+            Console.WriteLine(person1.name);
+            Console.WriteLine(person1.age);
+            Console.WriteLine(person1.gender);
+
+
+        }
+
+
+    }
+}
