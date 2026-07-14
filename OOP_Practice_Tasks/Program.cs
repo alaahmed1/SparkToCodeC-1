@@ -173,6 +173,32 @@ namespace OOP_Practice_Tasks
 
                     //all choices and their respective methods to be called here
                     //lastly add choice to exit the program Exit = true; break;
+                    case 1: ViewAccountDetails(); break;
+                    case 2: UpdateStudentAddress(); break;
+                    case 3: MakeDeposit(); break;
+                    case 4: MakeWithdrawal(); break;
+                    case 5: ViewProductDetails(); break;
+                    case 6: RegisterStudent(); break;
+                    case 7: CompareAccountBalances(); break;
+                    case 8: RestockProduct(); break;
+                    case 9: TransferBetweenAccounts(); break;
+                    case 10: UpdateStudentGrade(); break;
+                    case 11: StudentReportCard(); break;
+                    case 12: AccountHealthStatus(); break;
+                    case 13: BulkSaleWithRevenue(); break;
+                    case 14: ScholarshipEligibilityCheck(); break;
+                    case 15: FullBalanceTopUpFlow(); break;
+                    case 16: QuickAccountOpening(); break;
+                    case 17: TotalStudentsCounter(); break;
+                    case 18: OverdrawnAccountCheck(); break;
+                    case 19: SetStudentSecurityPin(); break;
+                    case 20:
+                        exitApp = true;
+                        Console.WriteLine("Goodbye!");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid option, please choose between 1 and 20.");
+                        break;
                 }
             }
             
