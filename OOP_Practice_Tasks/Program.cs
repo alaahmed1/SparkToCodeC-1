@@ -180,7 +180,7 @@ namespace OOP_Practice_Tasks
                     case 6: RegisterStudent(); break;
                     case 7: CompareAccountBalances(); break;
                     case 8: RestockProduct(); break;
-                    //case 9: TransferBetweenAccounts(); break;
+                    case 9: TransferBetweenAccounts(); break;
                     //case 10: UpdateStudentGrade(); break;
                     //case 11: StudentReportCard(); break;
                     //case 12: AccountHealthStatus(); break;
@@ -395,7 +395,7 @@ namespace OOP_Practice_Tasks
                     Console.WriteLine("Low in Stock");
 
                 }
-                else if (product1.StockQuantity >= 10 && product1.StockQuantity<=49)
+                else if (product1.StockQuantity >= 10 && product1.StockQuantity <= 49)
                 {
                     Console.WriteLine("Moderate");
                 }
@@ -431,8 +431,67 @@ namespace OOP_Practice_Tasks
             }
         }
 
-    }
-}
+
+        //Task 9: Transfer Between Accounts
+        static void TransferBetweenAccounts()
+        {
+            Console.WriteLine("Choose source account (1 or 2): ");
+            int sourceChoice = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Choose destination account (1 or 2): ");
+            int destChoice = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("enter amount to transfer: ");
+            double amount = double.Parse(Console.ReadLine());
+           
+            if (sourceChoice == 1)
+            {
+                try {
+                    if (amount <= B1.Balance)
+                    {
+
+                        B1.Withdraw(amount);
+                        B2.Deposit(amount);
+                        Console.WriteLine($"Transferred {amount} from {B1.HolderName} to {B2.HolderName}.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Insufficient funds in source account.");
+                    }
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Invalid amount entered.");
+                }
+
+
+            }
+            else if (sourceChoice == 2)
+            {
+                try
+                {
+                    if (amount <= B1.Balance)
+                    {
+
+                        B2.Withdraw(amount);
+                        B1.Deposit(amount);
+                        Console.WriteLine($"Transferred {amount} from {B1.HolderName} to {B2.HolderName}.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Insufficient funds in source account.");
+                    }
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Invalid amount entered.");
+                }
+            }
+           
+            else { Console.WriteLine("invalid source account choice"); }
+
+
+
+        }
+}  }
 
 
 
