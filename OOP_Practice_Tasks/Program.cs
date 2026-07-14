@@ -174,7 +174,7 @@ namespace OOP_Practice_Tasks
                     //lastly add choice to exit the program Exit = true; break;
                     case 1: ViewAccountDetails(); break;
                     case 2: UpdateStudentAddress(); break;
-                    //case 3: MakeDeposit(); break;
+                    case 3: MakeDeposit(); break;
                     //case 4: MakeWithdrawal(); break;
                     //case 5: ViewProductDetails(); break;
                     //case 6: RegisterStudent(); break;
@@ -256,6 +256,31 @@ namespace OOP_Practice_Tasks
             }
         }
 
+        //Task 3: Make a Deposit
+        static void MakeDeposit()
+        {
+            Console.WriteLine("Choose acc 1 or 2: ");
+            int accChoice = Convert.ToInt32(Console.ReadLine());
+            int amount;
+            if (accChoice == 1)
+            {
+                Console.WriteLine("Enter amount to deposit: ");
+                amount = Convert.ToInt32(Console.ReadLine());
+                B1.Deposit(amount);
+                Console.WriteLine("Deposit successful. New balance: " + B1.Balance);
+            }
+            else if (accChoice == 2)
+            {
+                Console.WriteLine("Enter amount to deposit: ");
+                amount = Convert.ToInt32(Console.ReadLine());
+                B2.Deposit(amount);
+                Console.WriteLine("Deposit successful. New balance: " + B2.Balance);
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice. Please select 1 or 2.");
+            }
+        }
 
 
     }
