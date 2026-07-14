@@ -173,7 +173,7 @@ namespace OOP_Practice_Tasks
                     //all choices and their respective methods to be called here
                     //lastly add choice to exit the program Exit = true; break;
                     case 1: ViewAccountDetails(); break;
-                    //case 2: UpdateStudentAddress(); break;
+                    case 2: UpdateStudentAddress(); break;
                     //case 3: MakeDeposit(); break;
                     //case 4: MakeWithdrawal(); break;
                     //case 5: ViewProductDetails(); break;
@@ -230,6 +230,32 @@ namespace OOP_Practice_Tasks
                 Console.WriteLine("Invalid choice. Please select 1 or 2.");
             }
         }
+
+        //Task 2: Update Student Address
+        static void UpdateStudentAddress()
+        {
+            Console.WriteLine("Choose student 1 or 2: ");
+            int choice = Convert.ToInt16(Console.ReadLine());
+            if (choice == 1)
+            {
+                Console.WriteLine("type in the new address: ");
+                string newadd = Console.ReadLine();
+                student1.Address = newadd;
+                Console.WriteLine("Student" + student1.Name + "new address is: " + student1.Address);
+            }
+            else if (choice == 2)
+            {
+                Console.WriteLine("type in the new address: ");
+                string newadd = Console.ReadLine();
+                student2.Address = newadd;
+                Console.WriteLine("Student " + student2.Name + "new address is: " + student2.Address);
+            }
+            else
+            {
+                Console.WriteLine("Invalid student choice.");
+            }
+        }
+
 
 
     }
