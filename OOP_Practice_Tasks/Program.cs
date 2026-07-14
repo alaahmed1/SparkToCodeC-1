@@ -178,8 +178,8 @@ namespace OOP_Practice_Tasks
                     case 4: MakeWithdrawal(); break;
                     case 5: ViewProductDetails(); break;
                     case 6: RegisterStudent(); break;
-                    //case 7: CompareAccountBalances(); break;
-                    //case 8: RestockProduct(); break;
+                    case 7: CompareAccountBalances(); break;
+                    case 8: RestockProduct(); break;
                     //case 9: TransferBetweenAccounts(); break;
                     //case 10: UpdateStudentGrade(); break;
                     //case 11: StudentReportCard(); break;
@@ -359,7 +359,27 @@ namespace OOP_Practice_Tasks
 
         }
 
-        //Task
+        //Task 7: Compare Two Account Balances
+        static void CompareAccountBalances()
+        {
+            if (B1.Balance > B2.Balance)
+            {
+                Console.WriteLine(B1.HolderName + " Holds more mony with balance of: " + B1.Balance);
+
+            }
+            else if (B2.Balance > B1.Balance)
+            {
+                Console.WriteLine(B2.HolderName + "Holds more mony with balance of: " + B2.Balance);
+            }
+            else
+            {
+                Console.WriteLine("Both accounts have the same balance.");
+            }
+        }
+
+        //Task 8: Restock Product & Stock Level Check
+
+
     }
 }
 
