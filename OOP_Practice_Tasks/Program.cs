@@ -1,5 +1,4 @@
-﻿using System.Dynamic;
-using System.Reflection.Metadata.Ecma335;
+﻿
 
 namespace OOP_Practice_Tasks
 {
@@ -30,7 +29,7 @@ namespace OOP_Practice_Tasks
         public void CheckBalance()
         {
             PrintInformation();
-            Console.WriteLine(Balance);
+            
         }
 
         private void PrintInformation()
@@ -49,12 +48,12 @@ namespace OOP_Practice_Tasks
         public int Grade { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
-        private string Email { get; set; }
+        private string email { get; set; }
         int age { get; set; } //default private
 
         public void Register(string Email)
         {
-            Email = Email; // set the email to the private field
+            email = Email; // set the email to the private field
             SendEmail("You have been registered successfully."); // call the private method to send a notification
         }
 
@@ -69,13 +68,13 @@ namespace OOP_Practice_Tasks
     {
         public string ProductName { get; set; }
         public double Price { get; set; }
-        public int StockQuality { get; set; }
+        public int StockQuantity { get; set; }
 
         public void sell(int quantity)
         {
-            if (quantity <= StockQuality)
+            if (quantity <= StockQuantity)
             {
-                StockQuality -= quantity;
+                StockQuantity -= quantity;
                 Console.WriteLine($"{quantity} units of {ProductName} sold.");
             }
             else
@@ -86,19 +85,19 @@ namespace OOP_Practice_Tasks
 
         public void Restock(int quantity)
         {
-            StockQuality += quantity;
+            StockQuantity += quantity;
             Console.WriteLine($"{quantity} units of {ProductName} restocked.");
         }
 
-        public GetventoryValue()
+        public double GetInventoryValue()
         {
             PrintDetails();
-            double inventoryValue = Price * StockQuality;
+            return Price * StockQuantity;
         }
 
         private void PrintDetails()
         {
-            Console.WriteLine($"Product Name: {ProductName}, Price: {Price}, Stock Quality: {StockQuality}");
+            Console.WriteLine($"Product Name: {ProductName}, Price: {Price}, Stock Quality: {StockQuantity}");
         }
 
         private void LogTransaction(string message)
@@ -121,10 +120,10 @@ namespace OOP_Practice_Tasks
         static Student student1 = new Student { Name = "Ali", Address = "Muscat", Grade = 65 };
         static Student student2 = new Student { Name = "Sara", Address = "Salalah", Grade = 75 };
 
-        static Product product1 = new Product { ProductName = "Laptop", Price = 5.500, StockQuality = 10 };
-        static Product product2 = new Product { ProductName = "Wirless Mouse", Price = 15.750, StockQuality = 50};
+        static Product product1 = new Product { ProductName = "Laptop", Price = 5.500, StockQuantity = 10 };
+        static Product product2 = new Product { ProductName = "Wirless Mouse", Price = 15.750, StockQuantity = 50 };
 
-        public static object Continue { get; private set; }
+        
 
         static void Main(string[] args)
         {
@@ -174,40 +173,68 @@ namespace OOP_Practice_Tasks
                     //all choices and their respective methods to be called here
                     //lastly add choice to exit the program Exit = true; break;
                     case 1: ViewAccountDetails(); break;
-                    case 2: UpdateStudentAddress(); break;
-                    case 3: MakeDeposit(); break;
-                    case 4: MakeWithdrawal(); break;
-                    case 5: ViewProductDetails(); break;
-                    case 6: RegisterStudent(); break;
-                    case 7: CompareAccountBalances(); break;
-                    case 8: RestockProduct(); break;
-                    case 9: TransferBetweenAccounts(); break;
-                    case 10: UpdateStudentGrade(); break;
-                    case 11: StudentReportCard(); break;
-                    case 12: AccountHealthStatus(); break;
-                    case 13: BulkSaleWithRevenue(); break;
-                    case 14: ScholarshipEligibilityCheck(); break;
-                    case 15: FullBalanceTopUpFlow(); break;
-                    case 16: QuickAccountOpening(); break;
-                    case 17: TotalStudentsCounter(); break;
-                    case 18: OverdrawnAccountCheck(); break;
-                    case 19: SetStudentSecurityPin(); break;
+                    //case 2: UpdateStudentAddress(); break;
+                    //case 3: MakeDeposit(); break;
+                    //case 4: MakeWithdrawal(); break;
+                    //case 5: ViewProductDetails(); break;
+                    //case 6: RegisterStudent(); break;
+                    //case 7: CompareAccountBalances(); break;
+                    //case 8: RestockProduct(); break;
+                    //case 9: TransferBetweenAccounts(); break;
+                    //case 10: UpdateStudentGrade(); break;
+                    //case 11: StudentReportCard(); break;
+                    //case 12: AccountHealthStatus(); break;
+                    //case 13: BulkSaleWithRevenue(); break;
+                    //case 14: ScholarshipEligibilityCheck(); break;
+                    //case 15: FullBalanceTopUpFlow(); break;
+                    //case 16: QuickAccountOpening(); break;
+                    //case 17: TotalStudentsCounter(); break;
+                    //case 18: OverdrawnAccountCheck(); break;
+                    //case 19: SetStudentSecurityPin(); break;
                     case 20:
-                        exitApp = true;
+                        Exit = true;
                         Console.WriteLine("Goodbye!");
                         break;
                     default:
                         Console.WriteLine("Invalid option, please choose between 1 and 20.");
                         break;
-                }
-            }
-            
 
-            
+
+                }
+
+                Console.WriteLine("press any key");
+                Console.ReadKey();
+                Console.Clear();
+            }
+
+
+
         }
+
+
+        //task 1: view account details
+        static void ViewAccountDetails()
+        {
+            Console.WriteLine("Choose acc 1 or 2: ");
+            int accChoice = Convert.ToInt32(Console.ReadLine());
+            if (accChoice == 1)
+            {
+                B1.CheckBalance();
+            }
+            else if (accChoice == 2)
+            {
+                B2.CheckBalance();
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice. Please select 1 or 2.");
+            }
+        }
+
+
     }
 }
 
 
-// declare all the functions for the user to call
+
 
