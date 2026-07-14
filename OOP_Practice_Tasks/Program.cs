@@ -29,7 +29,7 @@ namespace OOP_Practice_Tasks
         public void CheckBalance()
         {
             PrintInformation();
-            
+
         }
 
         private void PrintInformation()
@@ -123,7 +123,7 @@ namespace OOP_Practice_Tasks
         static Product product1 = new Product { ProductName = "Laptop", Price = 5.500, StockQuantity = 10 };
         static Product product2 = new Product { ProductName = "Wirless Mouse", Price = 15.750, StockQuantity = 50 };
 
-        
+
 
         static void Main(string[] args)
         {
@@ -176,8 +176,8 @@ namespace OOP_Practice_Tasks
                     case 2: UpdateStudentAddress(); break;
                     case 3: MakeDeposit(); break;
                     case 4: MakeWithdrawal(); break;
-                    //case 5: ViewProductDetails(); break;
-                    //case 6: RegisterStudent(); break;
+                    case 5: ViewProductDetails(); break;
+                    case 6: RegisterStudent(); break;
                     //case 7: CompareAccountBalances(); break;
                     //case 8: RestockProduct(); break;
                     //case 9: TransferBetweenAccounts(); break;
@@ -310,7 +310,56 @@ namespace OOP_Practice_Tasks
         }
 
 
+        //Task 5: View Product Details
+        static void ViewProductDetails()
+        {
+            Console.WriteLine("Choose product 1 or 2: ");
+            int prodChoice = Convert.ToInt32(Console.ReadLine());
+            if (prodChoice == 1)
+            {
+                double inventoryValue = product1.GetInventoryValue();
+                Console.WriteLine($"Inventory Value of {product1.ProductName}: {inventoryValue}");
+            }
+            else if (prodChoice == 2)
+            {
+                double inventoryValue = product2.GetInventoryValue();
+                Console.WriteLine($"Inventory Value of {product2.ProductName}: {inventoryValue}");
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice. Please select 1 or 2.");
+            }
 
+        }
+
+
+        //Task 6: Register a Student
+        static void RegisterStudent()
+        {
+            Console.WriteLine("Choose student 1 or 2: ");
+            int choice = Convert.ToInt16(Console.ReadLine());
+            if (choice == 1)
+            {
+                Console.WriteLine("Enter email to register: ");
+                string email = Console.ReadLine();
+                student1.Register(email);
+                Console.WriteLine("Student " + student1.Name + " registered with email: " + email);
+            }
+            else if (choice == 2)
+            {
+                Console.WriteLine("Enter email to register: ");
+                string email = Console.ReadLine();
+                student2.Register(email);
+                Console.WriteLine("Student " + student2.Name + " registered with email: " + email);
+            }
+            else
+            {
+                Console.WriteLine("Invalid student choice.");
+            }
+
+        }
+
+        //Task
     }
 }
 
