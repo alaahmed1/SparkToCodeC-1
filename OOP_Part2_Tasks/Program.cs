@@ -7,7 +7,7 @@
         public int AccountId { get; }
         public string holderName;
         public double balance;
-        public BankAccount(int Id, double amount)
+        public BankAccount(int Id, double amount) // this is a constructor that will be called when we create a new object from this class
         {
             AccountId = Id;
             balance = amount;
@@ -24,12 +24,12 @@
     {
         static void Main(string[] args)
         {
-            List<BankAccount> accounts = new List<BankAccount>();
+            List<BankAccount> accounts = new List<BankAccount>(); //defining a new list of bank accounts
             BankAccount b1 = new BankAccount(1, 100);
             accounts.Add(b1);
             BankAccount b2 = new BankAccount(2, 205);
             accounts.Add(b2);
-            accounts.Add(new BankAccount(3, 210));
+            accounts.Add(new BankAccount(3, 210)); // adding a new bank account to the list without creating a variable for it (easier way)
             accounts.Add(new BankAccount(4, 113));
 
 
