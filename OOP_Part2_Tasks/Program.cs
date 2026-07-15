@@ -6,7 +6,7 @@
     {
         public int AccountId { get; }
         public string holderName;
-        public double balance;
+        public double balance; //private and cannot be accessed outside the class, but we can access it through a public method
         public BankAccount(int Id, double amount) // this is a constructor that will be called when we create a new object from this class
         {
             AccountId = Id;
@@ -24,7 +24,7 @@
     {
         static void Main(string[] args)
         {
-            List<BankAccount> accounts = new List<BankAccount>(); //defining a new list of bank accounts
+            List<BankAccount> accounts = new List<BankAccount>(); //defining a new list of bank accounts based on the class BankAccount
             BankAccount b1 = new BankAccount(1, 100);
             accounts.Add(b1);
             BankAccount b2 = new BankAccount(2, 205);
