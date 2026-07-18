@@ -1,31 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Linq;
 
-namespace HotelManagementSystem { 
-
-     class Room
+namespace HotelManagementSystem
 {
-        public  int RoomNumber { get; set; }
-        public  string RoomType { get; set; }
-        public  double Price { get; set; }
-        public  bool IsAvailable { get; set; }
-        public  void DisplayRoom()
+
+    class Room
     {
-        Console.WriteLine($"Room Number: {RoomNumber}");
-        Console.WriteLine($"Room Type: {RoomType}");
-        Console.WriteLine($"Price: {Price}");
-        Console.WriteLine($"Is Available: {IsAvailable}");
+        public int RoomNumber { get; set; }
+        public string RoomType { get; set; }
+        public double Price { get; set; }
+        public bool IsAvailable { get; set; }
+        public void DisplayRoom()
+        {
+            Console.WriteLine($"Room Number: {RoomNumber}");
+            Console.WriteLine($"Room Type: {RoomType}");
+            Console.WriteLine($"Price: {Price}");
+            Console.WriteLine($"Is Available: {IsAvailable}");
+        }
+
     }
 
-}
-
-     class Guest
+    class Guest
     {
-        public  string guestId { get; set; }
-        public  string guestName { get; set; }
-        public  int RoomNumber { get; set; }
-        public  DateTime checkInDate { get; set; }
-        public  int totalNights { get; set; }
+        public string guestId { get; set; }
+        public string guestName { get; set; }
+        public int RoomNumber { get; set; }
+        public DateTime checkInDate { get; set; }
+        public int totalNights { get; set; }
 
         public void DisplayGuest()
         {
@@ -46,7 +46,7 @@ namespace HotelManagementSystem {
         static List<Room> rooms = new List<Room>(); //defining a new list of rooms based on the class Room
         static List<Guest> guests = new List<Guest>(); // static so it can be accessed 
 
-        
+
         static void Main(string[] args)
         {
             // Adding some sample rooms to the list
@@ -88,9 +88,9 @@ namespace HotelManagementSystem {
                     case 1:
                         AddNewRoon();
                         break;
-                    //case 2:
-                    //    BookRoom();
-                    //    break;
+                    case 2:
+                        RegisterNewGuest();
+                        break;
                     //case 3:
                     //    CheckOut();
                     //    break;
@@ -104,7 +104,7 @@ namespace HotelManagementSystem {
             }
         }
 
-         static void AddNewRoon() //Task 1: Add New Room
+        static void AddNewRoon() //Task 1: Add New Room
         {
             Console.Write("Enter Room Number: ");
             int roomNumber = Convert.ToInt32(Console.ReadLine());
@@ -118,12 +118,41 @@ namespace HotelManagementSystem {
                 Console.WriteLine("Room number already exists. Please try again.");
                 return;
             }
-            else {
+            else
+            {
                 Room newRoom = new Room { RoomNumber = roomNumber, RoomType = roomType, Price = price, IsAvailable = true };
                 rooms.Add(newRoom);
             }
-            
+
             Console.WriteLine("Room added successfully!");
         }
+
+        static void RegisterNewGuest() //Task 2: Register New Guest
+        {
+            Console.Write("Enter Guest Name: ");
+            string guestName = Console.ReadLine();
+            Console.Write("Enter Check-In Date (MM/dd/yyyy): ");
+            DateTime CheckInDate = DateTime.Parse(Console.ReadLine());
+            Console.Write("Enter Total Nights: ");
+            int TotalNights;
+            try
+            {
+                TotalNights = Convert.ToInt32(Console.ReadLine());
+                if (TotalNights > 0) {
+                    Console.WriteLine("Total nights must be greater than 0.");
+                    return;
+                }
+            }
+            catch (Exception ex) {
+                 Console.WriteLine(ex.Message);
+                return;
+            }
+
+            Guest newGuest = new Guest { guestId = Guid.NewGuid().ToString(), guestName = guestName, checkInDate = CheckInDate, totalNights = TotalNights };
+            guests.Add(newGuest);
+            Console.WriteLine("Guest registered successfully!");
+        }
+
+
     }
 }
