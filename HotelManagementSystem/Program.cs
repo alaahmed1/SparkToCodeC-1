@@ -278,9 +278,22 @@ namespace HotelManagementSystem
             }
         }
         
+        static void ViewAllGuests()
+        {  //Task 5: view all guests
+            var orderedGuests = guests.OrderBy(g => g.GuestId).ToList();
+            if (orderedGuests.Count == 0)
+            {
+                Console.WriteLine("No guests registered.");
+                return;
+            }
+            Console.WriteLine($"Total guests: {orderedGuests.Count()}\n");
+            foreach (Guest guest in orderedGuests)
+            {
+                guest.DisplayGuest();
+            }
 
 
 
 
-    }
+        }
 }
