@@ -98,7 +98,7 @@ namespace HotelManagementSystem
                     case 3:
                         BookAroom();
                         break;
-                    case "4":
+                    case 4:
                         ViewAllRooms();
                         break;
                     //case "5": 
@@ -262,7 +262,24 @@ namespace HotelManagementSystem
 
 
 
-        //Task 4: view all rooms
+        static void ViewAllRooms()
+        {  //Task 4: view all rooms
+            
+            var orderedRooms = rooms.OrderBy(r => r.RoomNumber).ToList();
+            if (orderedRooms.Count == 0)
+            {
+                Console.WriteLine("No rooms available.");
+                return;
+            }
+            Console.WriteLine($"Total rooms: {orderedRooms.Count()}\n");
+            foreach (Room rooms in orderedRooms)
+            {
+                rooms.DisplayRoom();
+            }
+        }
+        
+
+
 
 
     }
