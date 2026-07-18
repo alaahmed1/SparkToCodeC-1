@@ -36,7 +36,7 @@ namespace HotelManagementSystem
             Console.WriteLine($"Check in Date: {checkInDate}");
         }
 
-        
+
 
         public int CalculateTotalCost(double pricePerNight)
         {
@@ -101,12 +101,12 @@ namespace HotelManagementSystem
                     case 4:
                         ViewAllRooms();
                         break;
-                    //case "5": 
-                    //    ViewAllGuests(); 
-                    //    break;
-                    //case "6": 
-                    //    SearchAndFilterRooms(); 
-                    //    break;
+                    case 5:
+                        ViewAllGuests();
+                        break;
+                    case 6:
+                        SearchAndFilterRooms();
+                        break;
                     //case "7": 
                     //    GuestAndBookingStatistics(); 
                     //    break;
@@ -185,8 +185,9 @@ namespace HotelManagementSystem
                     return;
                 }
             }
-            catch (Exception ex) {
-                 Console.WriteLine(ex.Message);
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
                 return;
             }
             string guestId = $"G{(guests.Count + 1):D3}"; // Generate a unique guest ID based on the count of guests in format G001, G002, etc.
@@ -200,11 +201,8 @@ namespace HotelManagementSystem
         {
             Console.Write("Enter Guest ID: ");
             string guestId = Console.ReadLine();
-
             Console.Write("Enter Room Number: ");
-
             int roomNumber;
-
             try
             {
                 roomNumber = Convert.ToInt32(Console.ReadLine());
@@ -214,7 +212,6 @@ namespace HotelManagementSystem
                 Console.WriteLine("Invalid room number.");
                 return;
             }
-
             // Find guest
             Guest selectedGuest = guests.FirstOrDefault(g => g.GuestId == guestId);
 
@@ -232,23 +229,18 @@ namespace HotelManagementSystem
                 Console.WriteLine("Room not found.");
                 return;
             }
-
             // Check availability
             if (!selectedRoom.IsAvailable)
             {
                 Console.WriteLine("Room is already booked.");
                 return;
             }
-
-
             // Update objects
             selectedGuest.RoomNumber = roomNumber.ToString();
             selectedRoom.IsAvailable = false;
 
-
             // Calculate cost
             double totalCost = selectedGuest.CalculateTotalCost(selectedRoom.PricePerNight);
-
 
             // Confirmation
             Console.WriteLine("\n===== Booking Confirmation =====");
@@ -264,7 +256,7 @@ namespace HotelManagementSystem
 
         static void ViewAllRooms()
         {  //Task 4: view all rooms
-            
+
             var orderedRooms = rooms.OrderBy(r => r.RoomNumber).ToList();
             if (orderedRooms.Count == 0)
             {
@@ -277,7 +269,7 @@ namespace HotelManagementSystem
                 rooms.DisplayRoom();
             }
         }
-        
+
         static void ViewAllGuests()
         {  //Task 5: view all guests
             var orderedGuests = guests.OrderBy(g => g.GuestId).ToList();
@@ -291,9 +283,86 @@ namespace HotelManagementSystem
             {
                 guest.DisplayGuest();
             }
-
-
-
-
         }
+
+
+
+        static void SearchAndFilterRooms()
+        {
+            bool exit = false;
+            while (!exit)
+            {
+                Console.WriteLine("Search & Filter Rooms");
+                Console.WriteLine("1. Show available Rooms");
+                Console.WriteLine("2. Filter by Room Type");
+                Console.WriteLine("3. Room Price Statistics");
+                Console.Write("Enter your choice: ");
+                int choice;
+
+                try
+                {
+                    choice = Convert.ToInt32(Console.ReadLine());
+                }
+                catch
+                {
+                    Console.WriteLine("Invalid input. Please enter a number.");
+                    continue;
+                }
+
+                switch (choice)
+                {
+                    case 1:
+                        var availableRooms = rooms.Where(r => r.IsAvailable).ToList();
+                        if (availableRooms.Count == 0)
+                        {
+                            Console.WriteLine("No available rooms.");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Total available rooms: {availableRooms.Count()}\n");
+                            foreach (Room room in availableRooms)
+                            {
+                                room.DisplayRoom();
+                            }
+                        }
+                        break;
+                    case 2:
+                        Console.Write("Enter Room Type to filter by: ");
+                        string roomType = Console.ReadLine();
+                        var filteredRooms = rooms.Where(r => r.RoomType.Equals(roomType, StringComparison.OrdinalIgnoreCase)).ToList();
+                        if (filteredRooms.Count == 0)
+                        {
+                            Console.WriteLine($"No rooms found for type: {roomType}");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Total rooms of type '{roomType}': {filteredRooms.Count()}\n");
+                            foreach (Room room in filteredRooms)
+                            {
+                                room.DisplayRoom();
+                            }
+                        }
+                        break;
+                    case 3:
+                        if (rooms.Count == 0)
+                        {
+                            Console.WriteLine("No rooms available to calculate statistics.");
+                            break;
+                        }
+                        double averagePrice = rooms.Average(r => r.PricePerNight);
+                        double minPrice = rooms.Min(r => r.PricePerNight);
+                        double maxPrice = rooms.Max(r => r.PricePerNight);
+                        Console.WriteLine($"Average Price: {averagePrice}");
+                        Console.WriteLine($"Minimum Price: {minPrice}");
+                        Console.WriteLine($"Maximum Price: {maxPrice}");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid choice. Please try again.");
+                        break;
+                }
+            }
+        }
+
+
+    }
 }
