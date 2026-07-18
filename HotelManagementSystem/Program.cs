@@ -1,19 +1,21 @@
-﻿using System.Linq;
+﻿using System; //to use Console.WriteLine and other console methods
+using System.Linq; //to use LINQ methods like FirstOrDefault and Any
+using System.Collections.Generic; //to use List<T> and other collection types
 
 namespace HotelManagementSystem
 {
 
-    class Room
+    public class Room
     {
         public int RoomNumber { get; set; }
         public string RoomType { get; set; }
-        public double Price { get; set; }
+        public double PricePerNight { get; set; }
         public bool IsAvailable { get; set; }
         public void DisplayRoom()
         {
             Console.WriteLine($"Room Number: {RoomNumber}");
             Console.WriteLine($"Room Type: {RoomType}");
-            Console.WriteLine($"Price: {Price}");
+            Console.WriteLine($"Price: {PricePerNight}");
             Console.WriteLine($"Is Available: {IsAvailable}");
         }
 
@@ -21,23 +23,25 @@ namespace HotelManagementSystem
 
     class Guest
     {
-        public string guestId { get; set; }
-        public string guestName { get; set; }
-        public int RoomNumber { get; set; }
+        public string GuestId { get; set; }
+        public string GuestName { get; set; }
+        public string RoomNumber { get; set; } //not assigned yet, will be assigned when booking a room
         public DateTime checkInDate { get; set; }
         public int totalNights { get; set; }
 
         public void DisplayGuest()
         {
-            Console.WriteLine($"Name: {guestName}");
+            Console.WriteLine($"Name: {GuestName}");
             Console.WriteLine($"Room Number: {RoomNumber}");
             Console.WriteLine($"Check in Date: {checkInDate}");
         }
 
-        //public int CalculateTotalNights( DateTime checkOutDate)
-        //{
-        //    totalNights = (checkOutDate - checkInDate).Days;
-        //}
+        
+
+        public int CalculateTotalCost(double pricePerNight)
+        {
+            return (int)(totalNights * pricePerNight);
+        }
     }
 
 
@@ -50,12 +54,12 @@ namespace HotelManagementSystem
         static void Main(string[] args)
         {
             // Adding some sample rooms to the list
-            rooms.Add(new Room { RoomNumber = 101, RoomType = "Single", Price = 100, IsAvailable = true });
-            rooms.Add(new Room { RoomNumber = 102, RoomType = "Double", Price = 150, IsAvailable = true });
-            rooms.Add(new Room { RoomNumber = 103, RoomType = "Suite", Price = 200, IsAvailable = true });
-            rooms.Add(new Room { RoomNumber = 104, RoomType = "Single", Price = 100, IsAvailable = true });
-            rooms.Add(new Room { RoomNumber = 105, RoomType = "Double", Price = 150, IsAvailable = true });
-            rooms.Add(new Room { RoomNumber = 106, RoomType = "Suite", Price = 200, IsAvailable = true });
+            rooms.Add(new Room { RoomNumber = 101, RoomType = "Single", PricePerNight = 100, IsAvailable = true });
+            rooms.Add(new Room { RoomNumber = 102, RoomType = "Double", PricePerNight = 150, IsAvailable = true });
+            rooms.Add(new Room { RoomNumber = 103, RoomType = "Suite", PricePerNight = 200, IsAvailable = true });
+            rooms.Add(new Room { RoomNumber = 104, RoomType = "Single", PricePerNight = 100, IsAvailable = true });
+            rooms.Add(new Room { RoomNumber = 105, RoomType = "Double", PricePerNight = 150, IsAvailable = true });
+            rooms.Add(new Room { RoomNumber = 106, RoomType = "Suite", PricePerNight = 200, IsAvailable = true });
 
             Console.WriteLine("============================================");
             Console.WriteLine("Grand Hotel Management System ");
@@ -91,9 +95,45 @@ namespace HotelManagementSystem
                     case 2:
                         RegisterNewGuest();
                         break;
-                    //case 3:
-                    //    CheckOut();
+                    case 3:
+                        BookAroom();
+                        break;
+                    case "4":
+                        ViewAllRooms();
+                        break;
+                    //case "5": 
+                    //    ViewAllGuests(); 
                     //    break;
+                    //case "6": 
+                    //    SearchAndFilterRooms(); 
+                    //    break;
+                    //case "7": 
+                    //    GuestAndBookingStatistics(); 
+                    //    break;
+                    //case "8": 
+                    //    UpdateRoomPrice();
+                    //    break;
+                    //case "9": 
+                    //    GuestLookupByName();
+                    //    break;
+                    //case "10": 
+                    //    RoomTypeBreakdownReport(); 
+                    //    break;
+                    //case "11": 
+                    //    CheckOutGuest();
+                    //    break;
+                    //case "12": 
+                    //    RemoveUnavailableRooms(); 
+                    //    break;
+                    //case "13": 
+                    //    ExtendGuestStay(); 
+                    //    break;
+                    //case "14": 
+                    //    HighestRevenueBooking(); 
+                    //    break;
+                    //case "15": 
+                    //    GuestPaginationViewer();
+                    //break;
                     case 16:
                         exit = true;
                         break;
@@ -120,7 +160,7 @@ namespace HotelManagementSystem
             }
             else
             {
-                Room newRoom = new Room { RoomNumber = roomNumber, RoomType = roomType, Price = price, IsAvailable = true };
+                Room newRoom = new Room { RoomNumber = roomNumber, RoomType = roomType, PricePerNight = price, IsAvailable = true };
                 rooms.Add(newRoom);
             }
 
@@ -135,10 +175,12 @@ namespace HotelManagementSystem
             DateTime CheckInDate = DateTime.Parse(Console.ReadLine());
             Console.Write("Enter Total Nights: ");
             int TotalNights;
+
             try
             {
                 TotalNights = Convert.ToInt32(Console.ReadLine());
-                if (TotalNights > 0) {
+                if (TotalNights <= 0)
+                {
                     Console.WriteLine("Total nights must be greater than 0.");
                     return;
                 }
@@ -147,11 +189,80 @@ namespace HotelManagementSystem
                  Console.WriteLine(ex.Message);
                 return;
             }
-
-            Guest newGuest = new Guest { guestId = Guid.NewGuid().ToString(), guestName = guestName, checkInDate = CheckInDate, totalNights = TotalNights };
+            string guestId = $"G{(guests.Count + 1):D3}"; // Generate a unique guest ID based on the count of guests in format G001, G002, etc.
+            Guest newGuest = new Guest { GuestId = guestId, GuestName = guestName, checkInDate = CheckInDate, totalNights = TotalNights };
             guests.Add(newGuest);
-            Console.WriteLine("Guest registered successfully!");
+            Console.WriteLine($"Guest registered successfully! Guest ID is {newGuest.GuestId}");
         }
+
+
+        static void BookAroom()
+        {
+            Console.Write("Enter Guest ID: ");
+            string guestId = Console.ReadLine();
+
+            Console.Write("Enter Room Number: ");
+
+            int roomNumber;
+
+            try
+            {
+                roomNumber = Convert.ToInt32(Console.ReadLine());
+            }
+            catch
+            {
+                Console.WriteLine("Invalid room number.");
+                return;
+            }
+
+            // Find guest
+            Guest selectedGuest = guests.FirstOrDefault(g => g.GuestId == guestId);
+
+            if (selectedGuest == null)
+            {
+                Console.WriteLine("Guest not found.");
+                return;
+            }
+
+            // Find room
+            Room selectedRoom = rooms.FirstOrDefault(r => r.RoomNumber == roomNumber);
+
+            if (selectedRoom == null)
+            {
+                Console.WriteLine("Room not found.");
+                return;
+            }
+
+            // Check availability
+            if (!selectedRoom.IsAvailable)
+            {
+                Console.WriteLine("Room is already booked.");
+                return;
+            }
+
+
+            // Update objects
+            selectedGuest.RoomNumber = roomNumber.ToString();
+            selectedRoom.IsAvailable = false;
+
+
+            // Calculate cost
+            double totalCost = selectedGuest.CalculateTotalCost(selectedRoom.PricePerNight);
+
+
+            // Confirmation
+            Console.WriteLine("\n===== Booking Confirmation =====");
+            Console.WriteLine($"Guest Name: {selectedGuest.GuestName}");
+            Console.WriteLine($"Room Number: {selectedRoom.RoomNumber}");
+            Console.WriteLine($"Room Type: {selectedRoom.RoomType}");
+            Console.WriteLine($"Price Per Night: {selectedRoom.PricePerNight}");
+            Console.WriteLine($"Total Nights: {selectedGuest.totalNights}");
+            Console.WriteLine($"Total Cost: {totalCost}");
+        }
+
+
+
+        //Task 4: view all rooms
 
 
     }
