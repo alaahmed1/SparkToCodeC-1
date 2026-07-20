@@ -1,4 +1,8 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="DatabaseTasks/Airplane_ERD.drawio.png" />
+    <File Path="DatabaseTasks/College Management System.drawio.png" />
+  </Folder>
   <Project Path="Built_in_tasks/Built_in_tasks.csproj" Id="f97759b7-1f71-4929-9dad-919c13c2c361" />
   <Project Path="CSharpdFirstProject/CSharpdFirstProject.csproj" />
   <Project Path="Data_structure_tasks/Data_structure_tasks.csproj" Id="8f867218-d5d2-4a8f-a931-b0f30076f9c7" />
