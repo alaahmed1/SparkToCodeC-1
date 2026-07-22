@@ -33,3 +33,21 @@ CREATE TABLE Employee (
 GO
 
 
+CREATE TABLE Department (
+    Dnumber           INT           NOT NULL,
+    Dname             VARCHAR(50)   NOT NULL,
+    NumberOfEmployees INT           NOT NULL DEFAULT 0,
+    Mgr_ssn           CHAR(9)       NULL,
+    Mgr_start_date    DATE          NULL,
+    CONSTRAINT PK_Department PRIMARY KEY (Dnumber),
+    CONSTRAINT UQ_Department_Dname UNIQUE (Dname),
+    CONSTRAINT CK_Department_NumEmp CHECK (NumberOfEmployees >= 0),
+    CONSTRAINT FK_Department_Manager
+        FOREIGN KEY (Mgr_ssn) REFERENCES Employee(Ssn)
+        ON DELETE SET NULL
+        -- if a manager is deleted, the department just has no manager
+);
+GO
+
+
+
